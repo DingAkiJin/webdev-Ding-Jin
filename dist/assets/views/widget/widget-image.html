@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+  <link rel = "stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/styles.css">
+  <meta charset = "UTF-8">
+  <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <title>Widget-image</title>
+</head>
+<body>
+<nav class="nav navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--arrow mark-->
+    <p class="navbar-text pull-left ">
+      <a href="widgt-list.html" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <div class=".left-custom">
+      <p class="navbar-header pull-left ">
+        <a class="navbar-brand thick ">
+          <b>Widget Edit</b>
+        </a>
+      </p>
+    </div>
+    <!--check mark-->
+    <p class="navbar-text pull-right ">
+      <a href="widgt-list.html" class="navbar-link">
+        <span class="glyphicon glyphicon-ok "></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+<!-- Footer -->
+<nav class="nav navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a href="../user/profile.html">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+
+</nav>
+
+
+<div class="container-fluid top-custom ">
+  <lable>Name</lable>
+  <input class="form-control"/>
+  <lable>Text</lable>
+  <input class="form-control" type="text"/>
+  <lable>URL</lable>
+  <input class="form-control" type ="url" value ="http://lorempixel.com/400/200"/>
+  <lable>Width</lable>
+  <input class="form-control" value="100%"/>
+  <lable>Upload</lable>
+    <input  type="file" name="fileToUpload" id="fileToUpload">
+
+  <button class="btn btn-primary btn-block ">
+    Upload Image
+  </button>
+<div class="left-custom">
+  <a href="widgt-list.html" class="button">
+  <button class="btn btn-danger btn-block ">
+    Delete
+  </button>
+  </a>
+ </div>
+
+</div>
+
+</body>
+</html>
