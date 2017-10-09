@@ -1,0 +1,65 @@
+<nav class="nav navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--arrow mark-->
+    <p class="navbar-text pull-left ">
+      <a [routerLink]="['/widget-list']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <div class=".left-custom">
+      <p class="navbar-header pull-left ">
+        <a class="navbar-brand thick ">
+          <b>Widget Edit</b>
+        </a>
+      </p>
+    </div>
+    <!--check mark-->
+    <p class="navbar-text pull-right ">
+      <a [routerLink]="['/widget-list']" class="navbar-link">
+        <span class="glyphicon glyphicon-ok "></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+<!-- Footer -->
+<nav class="nav navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+
+</nav>
+
+
+<div class="container-fluid top-custom ">
+  <lable>Name</lable>
+  <input class="form-control"/>
+  <lable>Text</lable>
+  <input class="form-control" type="text"/>
+  <lable>URL</lable>
+  <input class="form-control" type ="url" value ="http://lorempixel.com/400/200"/>
+  <lable>Width</lable>
+  <input class="form-control" value="100%"/>
+  <lable>Upload</lable>
+  <input  type="file" name="fileToUpload" id="fileToUpload">
+
+  <button class="btn btn-primary btn-block ">
+    Upload Image
+  </button>
+  <div class="left-custom">
+    <a [routerLink]="['/widget-list']" class="button">
+      <button class="btn btn-danger btn-block ">
+        Delete
+      </button>
+    </a>
+  </div>
+
+</div>
+

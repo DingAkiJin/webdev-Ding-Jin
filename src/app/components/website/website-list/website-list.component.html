@@ -1,0 +1,80 @@
+<nav class="nav navbar navbar-inverse  navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--arrow mark-->
+    <p class="navbar-text pull-left">
+      <a [routerLink]="['/profile']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <div class=".left-custom">
+      <p class="navbar-header pull-left ">
+        <a class="navbar-brand thick ">
+          <b>Websites</b>
+        </a>
+      </p>
+    </div>
+
+
+    <!--plus mark-->
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/website-new']" class="navbar-link">
+        <span class="glyphicon glyphicon-plus"></span>
+      </a>
+    </p>
+    <!-- Footer -->
+    <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container-fluid">
+        <p class="navbar-text pull-right">
+          <a [routerLink]="['/profile']" class="navbar-link">
+            <span class="glyphicon glyphicon-user"></span>
+          </a>
+        </p>
+      </div>
+    </nav>
+  </div>
+</nav>
+<!-- website lists -->
+
+<div class="container-fluid top-custom ">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Address Book App
+        <a [routerLink]="['/website-edit']">
+      <span class="glyphicon glyphicon-cog pull-right">
+      </span>
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Blogger
+        <a [routerLink]="['/website-edit']">
+      <span class="glyphicon glyphicon-cog pull-right">
+      </span>
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Blogging App
+        <a [routerLink]="['/website-edit']">
+      <span class="glyphicon glyphicon-cog pull-right">
+      </span>
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Script Testing App
+        <a [routerLink]="['/website-edit']">
+      <span class="glyphicon glyphicon-cog pull-right">
+      </span>
+        </a>
+      </a>
+    </li>
+  </ul>
+</div>

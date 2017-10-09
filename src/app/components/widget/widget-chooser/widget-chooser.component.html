@@ -1,0 +1,109 @@
+<nav class="nav navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--arrow mark-->
+    <p class="navbar-text pull-left ">
+      <a [routerLink]="['/widget-list']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <div class=".left-custom">
+      <p class="navbar-header pull-left ">
+        <a class="navbar-brand thick ">
+          <b>Choose Widget</b>
+        </a>
+      </p>
+    </div>
+
+  </div>
+</nav>
+<!-- Footer -->
+<nav class="nav navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+  </div>
+
+</nav>
+
+<!-- website lists -->
+
+<div class="container-fluid top-custom ">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a [routerLink]="['/widget-heading']">
+        Header
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Label
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        HTML
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Text Input
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Link
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Button
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/widget-image']">
+        Image
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/widget-youtube']">
+        YouTube
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Data table
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a [routerLink]="['/page-list']">
+        Repeater
+        <a [routerLink]="['/website-edit']">
+        </a>
+      </a>
+    </li>
+  </ul>
+</div>

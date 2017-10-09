@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 hidden-xs">
+      <nav class="nav navbar navbar-inverse my-navbar-top ">
+        <!--arrow mark-->
+        <p class="navbar-text pull-left">
+          <a [routerLink]="['/website-list']" class="navbar-link">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+        </p>
+
+        <!--heading on the nav bar-->
+        <div class=".left-custom">
+          <p class="navbar-header pull-left ">
+            <a class="navbar-brand thick ">
+              <b>Websites</b>
+            </a>
+          </p>
+        </div>
+        <!--plus mark-->
+        <p class="navbar-text pull-right">
+          <a [routerLink]="['/website-new']" class="navbar-link">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </p>
+      </nav>
+    </div>
+    <div class="col-sm-9">
+      <nav class="nav navbar navbar-inverse my-navbar-top">
+        <!--heading on the nav bar-->
+        <div class=".left-custom">
+          <p class="navbar-header pull-left ">
+            <a class="navbar-brand thick ">
+              <b>New Website</b>
+            </a>
+          </p>
+        </div>
+        <!--check mark-->
+        <p class="navbar-text pull-right">
+          <a [routerLink]="['/website-list']" class="navbar-link">
+            <span class="glyphicon glyphicon-ok"></span>
+          </a>
+        </p>
+      </nav>
+    </div>
+  </div>
+  <!-- Footer -->
+  <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <p class="navbar-text pull-right">
+        <a [routerLink]="['/profile']" class="navbar-link">
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </p>
+
+    </div>
+  </nav>
+</div>
+
+<div class="col-sm-3 hidden-xs top-custom">
+  <ul class="list-group">
+    <li class="list-group-item">
+      Blogging App
+      <a [routerLink]="['/website-edit']" class="pull-left"> </a>
+      <span class="glyphicon-cog glyphicon pull-right"></span>
+
+    </li>
+    <li class="list-group-item">
+      Address Book App
+      <a [routerLink]="['/website-edit']" class="pull-left"></a>
+      <span class="glyphicon-cog glyphicon pull-right"></span>
+
+    </li>
+    <li class="list-group-item">
+      Script Testing App
+      <a [routerLink]="['/website-edit']" class="pull-left"></a>
+      <span class="glyphicon-cog glyphicon pull-right"></span>
+
+    </li>
+    <li class="list-group-item">
+      Blogger
+      <a [routerLink]="['/website-edit']" class="pull-left"></a>
+      <span class="glyphicon-cog glyphicon pull-right"></span>
+    </li>
+  </ul>
+</div>
+<div class="col-sm-9 top-custom ">
+  <lable>Name</lable>
+  <input class="form-control"/>
+  <lable>Description</lable>
+  <textarea class="form-control "
+            rows="8"></textarea>
+
+</div>

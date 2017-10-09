@@ -1,0 +1,54 @@
+<nav class="nav navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!--arrow mark-->
+    <p class="navbar-text pull-left ">
+      <a [routerLink]="['/page-list']" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+    </p>
+
+    <!--heading on the nav bar-->
+    <div class=".left-custom">
+      <p class="navbar-header pull-left ">
+        <a class="navbar-brand thick ">
+          <b>Edit Page</b>
+        </a>
+      </p>
+    </div>
+
+
+    <!--check mark-->
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/page-list']" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </p>
+  </div>
+</nav>
+<!-- Footer -->
+<nav class="nav navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <a [routerLink]="['/profile']">
+        <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </p>
+
+  </div>
+</nav>
+<div class=" container-fluid top-custom ">
+  <p>Name</p>
+  <input class="form-control"
+         value="Blog Post"/>
+
+  <p >Title</p>
+  <input class="form-control "
+         placeholder="Page Title"/>
+  <a [routerLink]="['/page-list']" class="button">
+    <button class="btn btn-danger btn-block top-custom">
+      Delete
+    </button>
+  </a>
+
+</div>
