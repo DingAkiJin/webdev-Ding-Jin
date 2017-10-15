@@ -40,36 +40,11 @@
 
 <div class="container-fluid top-custom ">
   <ul class="list-group">
-    <li class="list-group-item">
+    <li  *ngFor = "let website of websites"
+         class="list-group-item">
+
       <a [routerLink]="['/page-list']">
-        Address Book App
-        <a [routerLink]="['/website-edit']">
-      <span class="glyphicon glyphicon-cog pull-right">
-      </span>
-        </a>
-      </a>
-    </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
-        Blogger
-        <a [routerLink]="['/website-edit']">
-      <span class="glyphicon glyphicon-cog pull-right">
-      </span>
-        </a>
-      </a>
-    </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
-        Blogging App
-        <a [routerLink]="['/website-edit']">
-      <span class="glyphicon glyphicon-cog pull-right">
-      </span>
-        </a>
-      </a>
-    </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
-        Script Testing App
+        {{website.name}}
         <a [routerLink]="['/website-edit']">
       <span class="glyphicon glyphicon-cog pull-right">
       </span>

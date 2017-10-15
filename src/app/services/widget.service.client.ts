@@ -39,16 +39,18 @@ export class WidgetService {
     this.widgets.push(widget);
     return widget;
   }
-  findWidgetByPageId(pageId: string){
+  findWidgetByPageId(pageId: string) {
+    const wArray = [];
     for ( let x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x]._id === pageId) {
-        return this.widgets[x];
+        wArray.push(this.widgets[x]);
       }
     }
+    return wArray;
   }
   findWidgetById(widgetId: string) {
     for (let x = 0; x < this.widgets.length; x++) {
-      if ( this.widgets[x]._id === widgetId){
+      if ( this.widgets[x]._id === widgetId) {
         return this.widgets[x];
       }
     }
@@ -57,14 +59,14 @@ export class WidgetService {
 
   updateWidget(widgetId: string, widget: any) {
     const updateUser = this.widgets.find(function (user) {
-      return user._id === widgetId
+      return user._id === widgetId;
     });
     const index = this.widgets.indexOf(updateUser);
     return this.widgets[index] = widget;
   }
 
 
-  deleteWidget(widgetId: string){
+  deleteWidget(widgetId: string) {
     for (let x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x]._id === widgetId) {
         delete this.widgets[x];

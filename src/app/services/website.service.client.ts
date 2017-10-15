@@ -3,6 +3,7 @@ import { Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import {Website} from '../models/website.model.client';
 
 // injecting service into module
 @Injectable()
@@ -42,18 +43,20 @@ export class WebsiteService {
       }
     );
   }
-  findWebsitesByUser(userId: String){
-    for ( let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x].developerId === userId) {
-        return this.websites[x];
-      }
-    }
+  findWebsitesByUser(userId: String) {
+    const wArray = [];
+   for ( let x = 0; x < this.websites.length; x++) {
+     if (this.websites[x].developerId === userId) {
+       wArray.push(this.websites[x]);
+     }
+   }
+   return wArray;
   }
 
 
   updateWebsite(websiteId: String, website: any) {
     const updateUser = this.websites.find(function (user) {
-      return user._id === websiteId
+      return user._id === websiteId;
     });
     const index = this.websites.indexOf(updateUser);
     return this.websites[index] = website;

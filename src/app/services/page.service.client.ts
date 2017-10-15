@@ -33,12 +33,14 @@ export class PageService {
     this.pages.push(page);
     return page;
   }
-  findPageByWebsiteId(websiteId: String){
+  findPageByWebsiteId(websiteId: String) {
+    const pArray = [];
     for ( let x = 0; x < this.pages.length; x++) {
       if (this.pages[x].websiteId === websiteId) {
-        return this.pages[x];
+        pArray.push(this.pages[x]);
       }
     }
+    return pArray;
   }
   findPageById(pageId: String){
     for (let x = 0; x < this.pages.length; x++) {
@@ -51,14 +53,14 @@ export class PageService {
 
   updatePage(pageId: String, page: any) {
     const updateUser = this.pages.find(function (user) {
-      return user._id === pageId
+      return user._id === pageId;
     });
     const index = this.pages.indexOf(updateUser);
     return this.pages[index] = page;
   }
 
 
-  deletePage(pageId: String){
+  deletePage(pageId: String) {
     for (let x = 0; x < this.pages.length; x++) {
       if (this.pages[x]._id === pageId) {
         delete this.pages[x];
