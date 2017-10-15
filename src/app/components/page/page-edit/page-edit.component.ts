@@ -9,10 +9,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./page-edit.component.css']
 })
 export class PageEditComponent implements OnInit {
-  id: String;
+  userId: String;
+  pid: String;
   page: Page;
   name: String;
-  websiteId: String;
+  wId: String;
   description: String;
   constructor(private pageService: PageService,
               private activatedRoute: ActivatedRoute) { }
@@ -21,12 +22,13 @@ export class PageEditComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
-          this.id = params['pid'];
+          this.pid = params['pid'];
+          this.userId = params['uid'];
+          this.wId = params['wid'];
         }
       );
-    this.page = this.pageService.findPageById(this.id);
+    this.page = this.pageService.findPageById(this.pid);
     this.name = this.page.name;
-    this.websiteId = this.page.websiteId;
     this.description = this.page.description;
   }
 

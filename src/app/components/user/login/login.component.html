@@ -24,7 +24,6 @@
            required
            #password1 = "ngModel"/>
     <span class="help-block" *ngIf="!password1.valid && password1.touched">
-      Please enter password!
     </span>
     <a [routerLink] = "['/profile']" class="button">
       <button  (click) = "login()"

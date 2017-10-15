@@ -10,11 +10,13 @@
     </p>
 
     <!--tick mark-->
+
     <p class="navbar-text pull-right">
-      <a href="profile.view.client.html" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
+      <a [routerLink]="['/profile', userId]" class="navbar-link">
+        <span required=""  class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
+
 
   </div>
 </nav>
@@ -36,12 +38,12 @@
   <form>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input [(ngModel)] = "email"
+      <input
              type="text"
              class="form-control"
              id="email"
              value ="alice.wonderland@unicorn.com"
-             name="email"
+
       >
     </div>
   </form>
@@ -68,7 +70,7 @@
              name="lastname">
     </div>
   </form>
-  <a [routerLink]="['/website-list']" class="btn btn-primary btn-block">
+  <a [routerLink]="[ '/profile', userId, 'website']" class="btn btn-primary btn-block">
     Websites
   </a>
   <a [routerLink]="['/login']" class="btn btn-danger btn-block">
@@ -81,7 +83,7 @@
 <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile']" class="navbar-link">
+      <a [routerLink]="['/profile',userId]" class="navbar-link">
         <span class="glyphicon glyphicon-user"  ></span>
       </a>
     </p>

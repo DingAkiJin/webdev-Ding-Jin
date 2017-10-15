@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {UserService} from "../../../services/user.service.client";
-import {User} from "../../../models/user.model.client";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../services/user.service.client';
+import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -16,12 +16,14 @@ export class ProfileComponent implements OnInit {
   lastname: String;
 
   constructor(private userService: UserService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
-        (params: any ) => {
+        (params: any) => {
           this.userId = params['uid'];
         }
       )
@@ -29,8 +31,9 @@ export class ProfileComponent implements OnInit {
     this.username = this.user.username;
     this.firstname = this.user.firstName;
     this.lastname = this.user.lastName;
-
+    this.router.navigate(['/profile', this.user._id]);
 
   }
+
 
 }

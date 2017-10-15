@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean
   errorMsg = 'Invalid username or password !';
 
-  constructor( private userservice : UserService, private router: Router) {
+  constructor( private userservice: UserService, private router: Router) {
 
   }
 

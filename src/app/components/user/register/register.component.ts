@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {UserService} from '../../../services/user.service.client';
+import {Router} from '@angular/router';
+import {User} from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
+
+

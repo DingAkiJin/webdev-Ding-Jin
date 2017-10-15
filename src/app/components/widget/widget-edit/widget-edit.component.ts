@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widget-edit.component.css']
 })
 export class WidgetEditComponent implements OnInit {
-
+  id: String;
+  name: String;
   constructor() { }
 
   ngOnInit() {

@@ -4,7 +4,7 @@
       <nav class="nav navbar navbar-inverse my-navbar-top ">
         <!--arrow mark-->
         <p class="navbar-text pull-left">
-          <a [routerLink]="['/profile']" class="navbar-link">
+          <a [routerLink]="['/profile',userId,'website']" class="navbar-link">
             <span class="glyphicon glyphicon-chevron-left"></span>
           </a>
         </p>
@@ -19,7 +19,7 @@
         </div>
         <!--plus mark-->
         <p class="navbar-text pull-right">
-          <a [routerLink]="['/website-new']" class="navbar-link">
+          <a [routerLink]="['/profile',userId,'website','new']" class="navbar-link">
             <span class="glyphicon glyphicon-plus"></span>
           </a>
         </p>
@@ -37,7 +37,7 @@
         </div>
         <!--check mark-->
         <p class="navbar-text pull-right">
-          <a [routerLink]="['/website-list']" class="navbar-link">
+          <a [routerLink]="['/profile',userId,'website']" class="navbar-link">
             <span class="glyphicon glyphicon-ok"></span>
           </a>
         </p>
@@ -48,7 +48,7 @@
   <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
     <div class="container-fluid">`
       <p class="navbar-text pull-right">
-        <a [routerLink]="['/profile']" class="navbar-link">
+        <a [routerLink]="['/profile',userId]" class="navbar-link">
           <span class="glyphicon glyphicon-user" style="color:white"></span>
         </a>
       </p>
@@ -56,34 +56,22 @@
     </div>
   </nav>
 </div>
-
 <div class="col-sm-3 hidden-xs top-custom">
   <ul class="list-group">
-    <li class="list-group-item">
-      Blogging App
-      <a [routerLink]="['/website-edit']" class="pull-left"> </a>
-      <span class="glyphicon-cog glyphicon pull-right"></span>
+    <li  *ngFor = "let website of websites"
+         class="list-group-item">
 
-    </li>
-    <li class="list-group-item">
-      Address Book App
-      <a [routerLink]="['/website-edit']" class="pull-left"></a>
-      <span class="glyphicon-cog glyphicon pull-right"></span>
-
-    </li>
-    <li class="list-group-item">
-      Script Testing App
-      <a [routerLink]="['/website-edit']" class="pull-left"></a>
-      <span class="glyphicon-cog glyphicon pull-right"></span>
-
-    </li>
-    <li class="list-group-item">
-      Blogger
-      <a [routerLink]="['/website-edit']" class="pull-left"></a>
-      <span class="glyphicon-cog glyphicon pull-right"></span>
+      <a [routerLink]="['/profile', userId, 'website', website._id, 'page']">
+        {{website.name}}
+        <a [routerLink]="['/profile',userId,'website',website._id]">
+      <span class="glyphicon glyphicon-cog pull-right">
+      </span>
+        </a>
+      </a>
     </li>
   </ul>
 </div>
+
 <div class="col-sm-9 top-custom ">
   <lable>Website Name</lable>
   <input
@@ -99,7 +87,9 @@
     rows="8"
   name = "description">Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com). A user can have up to 100 blogs per account.
         </textarea>
+  <a [routerLink]="['/profile', userId, 'website']">
   <button class="btn btn-danger btn-block top-custom">
     Delete
   </button>
+  </a>
 </div>
