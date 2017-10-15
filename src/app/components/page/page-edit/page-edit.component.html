@@ -39,12 +39,16 @@
 </nav>
 <div class=" container-fluid top-custom ">
   <p>Name</p>
-  <input class="form-control"
-         value="Blog Post"/>
+  <input
+    [(ngModel)] = "name"
+    class="form-control"
+    value="Blog Post"
+    name = "name"/>
 
   <p >Title</p>
   <input class="form-control "
-         placeholder="Page Title"/>
+         placeholder="Page Title"
+         />
   <a [routerLink]="['/page-list']" class="button">
     <button class="btn btn-danger btn-block top-custom">
       Delete

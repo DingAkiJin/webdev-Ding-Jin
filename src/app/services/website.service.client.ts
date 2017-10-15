@@ -36,12 +36,11 @@ export class WebsiteService {
     this.websites.push(website);
     return website;
   }
-  findWebsiteById(websiteId: String){
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId){
-        return this.websites[x];
+  findWebsiteById(websiteId: String) {
+    return this.websites.find(function(website){
+        return website._id === websiteId;
       }
-    }
+    );
   }
   findWebsitesByUser(userId: String){
     for ( let x = 0; x < this.websites.length; x++) {
