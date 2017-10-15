@@ -19,30 +19,53 @@
   </div>
 </nav>
 
-
 <div class="container-fluid top-custom">
   <form>
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" value ="walice">
+      <input [(ngModel)] = "username"
+             type="text"
+             class="form-control"
+             id="username"
+             placeholder="username"
+             value = "alice"
+             name= "username"
+      >
     </div>
   </form>
   <form>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" value ="alice.wonderland@unicorn.com">
+      <input [(ngModel)] = "email"
+             type="text"
+             class="form-control"
+             id="email"
+             value ="alice.wonderland@unicorn.com"
+             name="email"
+      >
     </div>
   </form>
   <form>
     <div class="form-group">
       <label for="first-name">First Name</label>
-      <input type="text" class="form-control" id="first-name" value ="Alice">
+      <input [(ngModel)] = "firstname"
+             type="text"
+             class="form-control"
+             id="first-name"
+             value = "Alice"
+             name = "firstname"
+      >
     </div>
   </form>
   <form>
     <div class="form-group">
       <label for="last-name">Last Name</label>
-      <input type="text" class="form-control" id="last-name" value ="Wonderland">
+      <input [(ngModel)] = "lastname"
+             type="text"
+             class="form-control"
+             id="last-name"
+             value ="Wonderland"
+             name="lastname">
     </div>
   </form>
   <a [routerLink]="['/website-list']" class="btn btn-primary btn-block">
@@ -65,4 +88,5 @@
 
   </div>
 </nav>
+
 

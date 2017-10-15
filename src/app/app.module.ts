@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+
 import { AppComponent } from './app.component';
 import {HomeComponent} from './components/home/home/home.component';
 import { TestComponent } from './components/test/test/test.component';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-import {TestService} from './services/test.service.client';
 import {RegisterComponent} from './components/user/register/register.component';
 import { WebsiteEditComponent } from './components/website/website-edit/website-edit.component';
 import { WebsiteListComponent } from './components/website/website-list/website-list.component';
@@ -22,6 +23,10 @@ import { WidgetEditComponent } from './components/widget/widget-edit/widget-edit
 import {LoginComponent} from './components/user/login/login.component';
 import {ProfileComponent} from './components/user/profile/profile.component';
 import {Routing} from './app.routing';
+import {UserService} from './services/user.service.client';
+import {WebsiteService} from './services/website.service.client';
+import {PageService} from './services/page.service.client';
+import {WidgetService} from './services/widget.service.client';
 
 @NgModule({
   // Declare components here
@@ -52,7 +57,8 @@ import {Routing} from './app.routing';
     Routing
   ],
   // Client Side services here
-  providers: [ TestService],
-  bootstrap: [AppComponent]
+  providers: [ UserService, WebsiteService, PageService, WidgetService],
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
