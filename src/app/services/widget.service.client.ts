@@ -39,7 +39,7 @@ export class WidgetService {
     this.widgets.push(widget);
     return widget;
   }
-  findWidgetByPageId(pageId: string) {
+  findWidgetByPageId(pageId: String) {
     const wArray = [];
     for ( let x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x]._id === pageId) {
@@ -48,7 +48,7 @@ export class WidgetService {
     }
     return wArray;
   }
-  findWidgetById(widgetId: string) {
+  findWidgetById(widgetId: String) {
     for (let x = 0; x < this.widgets.length; x++) {
       if ( this.widgets[x]._id === widgetId) {
         return this.widgets[x];
@@ -57,7 +57,7 @@ export class WidgetService {
   }
 
 
-  updateWidget(widgetId: string, widget: any) {
+  updateWidget(widgetId: String, widget: any) {
     const updateUser = this.widgets.find(function (user) {
       return user._id === widgetId;
     });
@@ -66,7 +66,7 @@ export class WidgetService {
   }
 
 
-  deleteWidget(widgetId: string) {
+  deleteWidget(widgetId: String) {
     for (let x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x]._id === widgetId) {
         delete this.widgets[x];

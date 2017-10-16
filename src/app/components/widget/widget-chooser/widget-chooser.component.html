@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/widget-list']" class="navbar-link">
+      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -23,7 +23,7 @@
 <nav class="nav navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile']">
+      <a [routerLink]="['/profile',userId]">
         <span class="glyphicon glyphicon-user"></span>
       </a>
     </p>
@@ -36,72 +36,72 @@
 <div class="container-fluid top-custom ">
   <ul class="list-group">
     <li class="list-group-item">
-      <a [routerLink]="['/widget-heading']">
+      <a [routerLink]="['/profile',userId,'website',websiteId,'page', pId,'widget',widgetId]">
         Header
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Label
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         HTML
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Text Input
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Link
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Button
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/widget-image']">
+      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetId]">
         Image
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/widget-youtube']">
+      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetId]">
         YouTube
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Data table
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
     <li class="list-group-item">
-      <a [routerLink]="['/page-list']">
+      <a [routerLink]="['profile',userId,'website',widgetId,'page']">
         Repeater
-        <a [routerLink]="['/website-edit']">
+        <a [routerLink]="['profile',userId,'website',widgetId]">
         </a>
       </a>
     </li>
