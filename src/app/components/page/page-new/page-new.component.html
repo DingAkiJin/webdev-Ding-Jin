@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/profile', userId,'website', wId,'page']" class="navbar-link">
+      <a [routerLink]="['/profile', userId,'website', websiteId,'page']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -20,8 +20,8 @@
 
     <!--check mark-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile', userId,'website', wId,'page']" class="navbar-link">
-        <span class="glyphicon glyphicon-ok"></span>
+      <a [routerLink]="['/profile', userId,'website', websiteId,'page']" class="navbar-link">
+        <span  class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
   </div>
@@ -37,13 +37,18 @@
 
   </div>
 </nav>
+
 <div class=" container-fluid top-custom ">
   <lable>Name</lable>
   <input class="form-control"
-         placeholder="Page Name"/>
+         placeholder="Page Name"
+         required
+        />
 
   <lable >Title</lable>
   <input class="form-control "
-         placeholder="Page Title"/>
+         placeholder="Page Title"
+         required/>
 
 </div>
+

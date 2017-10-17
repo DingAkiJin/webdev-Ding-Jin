@@ -30,8 +30,9 @@ export class UserService {
     'deleteUser': this.deleteUser,
   };
 
-  createUser(user: any) {
-    user._id = Math.random().toString();
+  createUser(username: String, password: String) {
+    const _id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
+    const user = {_id: _id, username: username.toString(), password: password.toString(), firstName: 'null', lastName: 'null'};
     this.users.push(user);
     return user;
   }

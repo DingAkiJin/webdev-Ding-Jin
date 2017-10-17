@@ -28,8 +28,9 @@ export class PageService {
     'deletePage': this.deletePage,
   };
 
-  createPage(websiteId: String, page: any) {
-    page.websiteId = websiteId;
+  createPage(name: String, title: String) {
+    const _id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
+    const page = {_id: _id, name: name.toString(), websiteId: '456', 'description': title.toString()};
     this.pages.push(page);
     return page;
   }

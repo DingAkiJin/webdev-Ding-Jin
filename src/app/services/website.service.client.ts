@@ -32,8 +32,9 @@ export class WebsiteService {
     'deleteWebsite': this.deleteWebsite,
   };
 
-  createWebsite(userId: String, website: any) {
-    website.developerId = userId;
+  createWebsite(name: String, description: String) {
+    const _id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
+    const website = {_id: _id, name: name.toString(), developerId: 'null', description: description.toString()};
     this.websites.push(website);
     return website;
   }

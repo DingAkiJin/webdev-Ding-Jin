@@ -57,19 +57,7 @@
   </nav>
 </div>
 <div class="col-sm-3 hidden-xs top-custom">
-  <ul class="list-group">
-    <li  *ngFor = "let website of websites"
-         class="list-group-item">
-
-      <a [routerLink]="['/profile', userId, 'website', website._id, 'page']">
-        {{website.name}}
-        <a [routerLink]="['/profile',userId,'website',website._id]">
-      <span class="glyphicon glyphicon-cog pull-right">
-      </span>
-        </a>
-      </a>
-    </li>
-  </ul>
+  <app-website-list></app-website-list>
 </div>
 
 <div class="col-sm-9 top-custom ">

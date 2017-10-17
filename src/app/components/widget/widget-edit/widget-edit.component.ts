@@ -26,10 +26,11 @@ export class WidgetEditComponent implements OnInit {
           this.userId = params['uid'];
           this.pId = params['pid'];
           this.websiteId = params['wid'];
-          this.websiteId = params['wgid'];
+          this.widgetId = params['wgid'];
         }
       );
     this.widget = this.widgetService.findWidgetById(this.widgetId);
+    console.log(this.widget = this.widgetService.findWidgetById(this.widgetId));
   }
 
 }

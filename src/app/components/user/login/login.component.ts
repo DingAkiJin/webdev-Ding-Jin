@@ -30,9 +30,8 @@ export class LoginComponent implements OnInit {
     if (user) {
       this.router.navigate(['/profile', user._id]);
     }
-
-
-
   }
+
+
 
 }

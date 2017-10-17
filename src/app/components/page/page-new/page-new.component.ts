@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Page} from '../../../models/page.model.client';
 import {PageService} from '../../../services/page.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-page-new',
@@ -9,21 +10,33 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./page-new.component.css']
 })
 export class PageNewComponent implements OnInit {
-  wId: String;
+
+  @ViewChild('f') createPageForm: NgForm;
+  name: String;
+  title: String;
   userId: String;
-  pages: Page[];
+  websiteId: String;
 
-  constructor(private _pageService: PageService, private activatedRoute: ActivatedRoute) { }
+  constructor(private _pageService: PageService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
-  ngOnInit() {this.activatedRoute.params
-    .subscribe(
-      (params: any) => {
-        this.wId = params['wid'];
-        this.userId = params['uid'];
+  ngOnInit() {
+    this.activatedRoute.params
+      .subscribe(
+        (params: any) => {
+          this.userId = params['uid'];
+          this.websiteId = params['wid'];
+        }
+      );
+  }
 
-      }
-    );
+  createNewPage() {
+    this.name = this.createPageForm.value.name;
+    this.title = this.createPageForm.value.title;
+    const page: Page = this._pageService.createPage(this.name, this.title);
+    if (page) {
+      this.router.navigate(['/profile', this.userId, 'website', this.websiteId, 'page']);
+    }
 
-    this.pages = this._pageService.findPageByWebsiteId(this.wId);
   }
 }
