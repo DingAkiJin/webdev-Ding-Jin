@@ -23,6 +23,7 @@
            class="form-control"
            required
            #password1 = "ngModel"/>
+  <br/>
     <span class="help-block" *ngIf="!password1.valid && password1.touched">
       Please enter password!
     </span>
@@ -33,7 +34,7 @@
                [disabled] = "!f.valid">
         Login
       </button>
-
+    <br/>
     </a>
     <a [routerLink] = "['/register']" class="button  left-custom">
       <button class="btn btn-success btn-block"
