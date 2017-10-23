@@ -26,10 +26,10 @@ export class WebsiteEditComponent implements OnInit {
           this.id = params['wid'];
         }
       );
-    this.website = this.websiteService.findWebsiteById(this.id);
-    this.name = this.website.name;
-    this.developerId = this.website.developerId;
-    this.description = this.website.description;
+    //this.website = this.websiteService.findWebsiteById(this.id);
+    //name = this.website.name;
+    //this.developerId = this.website.developerId;
+    //this.description = this.website.description;
     // this.websites = this.websiteService.findWebsitesByUser(this.userId);
   }
 
