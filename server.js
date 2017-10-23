@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Point static path to dist -- For building -- REMOVE
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 
 
@@ -45,13 +45,15 @@ const server = http.createServer(app);
 //var serverSide = require("./server/test-mongodb/app");
 //serverSide(app);
 
+app.use('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './dist/index.html'));
+});
+
 require("./assignment/app")(app);
 // For Build: Catch all other routes and return the index file -- BUILDING
-//app.get('*', function (req, res) {
- // res.sendFile(path.join(__dirname, './dist/index.html'));
-//});
 
 
-server.listen( port );
+
+server.listen( port, ()=> console.log("Server is working") );
 
 
