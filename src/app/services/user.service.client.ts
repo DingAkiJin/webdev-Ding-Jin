@@ -10,70 +10,32 @@ import {User} from '../models/user.model.client';
 
 export class UserService {
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
-  users = [
-    {_id: '123', username: 'alice',    password: 'alice',     firstName: 'Alice',  lastName: 'Wonder' },
-    {_id: '234', username: 'bob',      password: 'bob',   firstName: 'Bob',    lastName: 'Marley'  },
-    {_id: '345' , username: 'charly',   password: 'charly',  firstName: 'Charly', lastName: 'Garcia'  },
-    {_id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose',   lastName: 'Annunzi' }
 
-  ];
+  api = {'findUserByCredentials': this.findUserByCredentials};
 
-  api = {
-    'createUser': this.createUser,
-    'findUserById': this.findUserById,
-    'findUserByUsername': this.findUserByUsername,
-    'findUserByCredentials': this.findUserByCredentials,
-    'updateUser': this.updateUser,
-    'deleteUser': this.deleteUser,
-  };
-
-  createUser(username: String, password: String) {
-    const _id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
-    const user = {_id: _id, username: username.toString(), password: password.toString(), firstName: 'null', lastName: 'null'};
-    this.users.push(user);
-    return user;
+  createUser( user: User ) {
+    const url = 'http://localhost:3100/api/user' ;
+    return this.http.post(url, user)
+      .map((response: Response) => {
+      return response.json();
+      });
   }
-
-  findUserById(userId: String) {
-    return this.users.find(function(user){
-        return user._id === userId;
-      }
-    );
-  }
-
   findUserByCredentials(username: String, password: String) {
-    return this.users.find(function (user) {
-      return user.username === username &&
-        user.password === password
-    });
-  }
-
-  findUserByUsername(username: String) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x].username === username) {
-        return this.users[x];
+    const url = 'http://localhost:3100/api/user?username=' + username + '&password=' + password;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
       }
-    }
-  }
 
-  updateUser(userId: String, user: any) {
-    const updateUser = this.users.find(function (user) {
-      return user._id === userId
-    });
-    const index = this.users.indexOf(updateUser);
-    return this.users[index] = user;
-
-  }
-
-
-  deleteUser(userId: String) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {
-        delete this.users[x];
-      }
-    }
+  findUserById(userId) {
+    const url = 'http://localhost:3100/api/user' + userId;
+    return this.http.get(url)
+      .map((response: Response) => {
+      return response.json();
+      });
   }
 }

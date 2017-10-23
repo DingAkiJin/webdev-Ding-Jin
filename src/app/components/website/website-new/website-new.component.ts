@@ -9,18 +9,27 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./website-new.component.css']
 })
 export class WebsiteNewComponent implements OnInit {
-
-  userId: String;
   websites: Website[];
+  websitename: String;
+  description: String;
+  uid: String;
   constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
-
+  createWebsite(name, description) {
+    const website: Website = new Website('', name , '' , description);
+    this._websiteService.createWebsite(this.uid, website)
+      .subscribe((websites) => {
+        this.websites = websites;
+      });
+  }
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe(
-        (params: any) => {
-          this.userId = params['uid'];
-        }
-      );
-    this.websites = this._websiteService.findWebsitesByUser(this.userId);
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.uid = params['uid'];
+        this._websiteService
+          .findWebsitesByUser(this.uid).subscribe(
+          (websites) => {
+            this.websites = websites;
+          });
+      });
 }
 }

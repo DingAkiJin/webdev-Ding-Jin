@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
 import {User} from '../../../models/user.model.client';
+import {extractStyleParams} from "@angular/animations/browser/src/util";
 
 @Component({
   selector: 'app-profile',
@@ -21,19 +22,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe(
-        (params: any) => {
-          this.userId = params['uid'];
-        }
-      )
-    this.user = this.userService.findUserById(this.userId);
-    this.username = this.user.username;
-    this.firstname = this.user.firstName;
-    this.lastname = this.user.lastName;
-    this.router.navigate(['/profile', this.user._id]);
-
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['userId'];
+      return this.userService.findUserById(this.userId)
+        .subscribe((user: User) => {
+          this.user = user;
+        });
+    });
   }
-
-
 }

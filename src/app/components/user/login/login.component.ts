@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
 import {User} from '../../../models/user.model.client';
+import 'rxjs/Rx';
+
 
 
 @Component({
@@ -15,6 +17,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
 
+
   errorFlag: boolean
   errorMsg = 'Invalid username or password !';
 
@@ -23,13 +26,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {}
-  login() {
-    this.username = this.loginForm.value.username;
-    this.password = this.loginForm.value.password;
-    const user: User = this.userservice.findUserByCredentials(this.username, this.password);
-    if (user) {
-      this.router.navigate(['/profile', user._id]);
-    }
+
+  login(username: String, password: String) {
+    this.userservice.findUserByCredentials(username, password)
+      .subscribe((user: User) => {
+      if (user) {
+        this.router.navigate(['/profile', user._id]);
+      }
+    });
   }
 
 

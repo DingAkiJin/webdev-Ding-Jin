@@ -10,21 +10,37 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./website-list.component.css']
 })
 export class WebsiteListComponent implements OnInit {
-  userId: String;
   websites: Website[];
+  websiteName: String;
+  uid: String;
 
-  constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.activatedRoute.params
+  constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) {
+  }
+
+  selectWebsite(WebsiteId: String) {
+    this._websiteService.findWebsiteById(this.uid, WebsiteId)
+      .subscribe((website) => {
+        this.websiteName = website.name;
+      });
+  }
+  deleteWebsite(websiteId: String) {
+    this._websiteService.deleteWebsite( websiteId, this.uid)
       .subscribe(
-        (params: any) => {
-          this.userId = params['uid'];
-        }
-      );
-
-    this.websites = this._websiteService.findWebsitesByUser(this.userId);
-
+        (websites) => {
+         this.websites = websites;
+        });
+  }
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        this.uid = params['uid'];
+        this._websiteService
+          .findWebsitesByUser(this.uid).subscribe(
+            (websites) => {
+              this.websites = websites;
+            });
+      });
   }
 
 

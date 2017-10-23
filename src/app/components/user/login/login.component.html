@@ -28,7 +28,7 @@
       Please enter password!
     </span>
     <a [routerLink] = "['/profile']" class="button">
-      <button  (click) = "login()"
+      <button  (click) = "login(username1 ,password1)"
                class="btn btn-primary btn-block"
                type = "submit"
                [disabled] = "!f.valid">
