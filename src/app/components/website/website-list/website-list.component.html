@@ -37,7 +37,17 @@
   </div>
 </nav>
 <!-- website lists -->
-
+<br/>
+<br/>
+<br/>
+<br/>
+<label>Website Name:</label>
+<input class="form-control"
+       [(ngModel)] ="websiteName"
+       placeholder="name"/>
+<button (click) = "updateWebsits(websiteName)" class="btn btn-primary btn-block">
+  update website
+</button>
 
 <div class="container-fluid top-custom ">
   <ul class="list-group">

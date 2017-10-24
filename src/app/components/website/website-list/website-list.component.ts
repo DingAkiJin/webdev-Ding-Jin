@@ -13,15 +13,23 @@ export class WebsiteListComponent implements OnInit {
   websites: Website[];
   websiteName: String;
   uid: String;
-
+  website: Website;
 
   constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) {
+  }
+  updateWebsits(websiteName: String) {
+    const newWebsite = new Website(this.website._id, websiteName, this.website.developerId , '');
+    this._websiteService.updateWebsite(this.uid, newWebsite)
+      .subscribe((websites) => {
+        this.websites = websites;
+      });
   }
 
   selectWebsite(WebsiteId: String) {
     this._websiteService.findWebsiteById(this.uid, WebsiteId)
       .subscribe((website) => {
-        this.websiteName = website.name;
+      this.website = website;
+        this.websiteName = this.website.name;
       });
   }
   deleteWebsite(websiteId: String) {

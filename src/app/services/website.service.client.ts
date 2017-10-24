@@ -21,14 +21,16 @@ export class WebsiteService {
     'findWebsiteById': this.findWebsiteById,
     'updateWebsite': this.updateWebsite,
     'deleteWebsite': this.deleteWebsite,
+    'findAllWebsites': this.findAllWebsites,
   };
+  updateWebsite(uid: String, newWebsite: Website){
+    const url = 'http://localhost:3100/api/user/' + uid + '/website/' + newWebsite._id;
+    return this.http.put(url, newWebsite)
+      .map((res: Response) => {
+      return res.json();
+      });
+  }
 
-  /*createWebsite(name: String, description: String) {
-    const _id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
-    const website = {_id: _id, name: name.toString(), developerId: 'null', description: description.toString()};
-    this.websites.push(website);
-    return website;
-  }*/
   findWebsitesByUser(uid: String) {
     const url = 'http://localhost:3100/api/user/' + uid + '/website';
     return this.http.get(url)
@@ -73,11 +75,5 @@ export class WebsiteService {
   }
 
 
-  updateWebsite(websiteId: String, website: any) {
-    const updateUser = this.websites.find(function (user) {
-      return user._id === websiteId;
-    });
-    const index = this.websites.indexOf(updateUser);
-    return this.websites[index] = website;
-  }
+
 }
