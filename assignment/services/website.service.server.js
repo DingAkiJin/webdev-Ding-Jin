@@ -23,8 +23,7 @@ module.exports = function(app) {
     for (var i = 0; i < WEBSITES.length; i++) {
       if (WEBSITES[i]._id === websiteId) {
         WEBSITES[i] = newWebsite;
-        var websites = getWebsitesForUserId(uid);
-        res.json(websites);
+        res.json(getWebsiteById(websiteId));
         return;
       }
     }

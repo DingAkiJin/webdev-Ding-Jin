@@ -15,18 +15,30 @@ export class ProfileComponent implements OnInit {
   firstname: String;
   username: String;
   lastname: String;
+  password: String;
 
   constructor(private userService: UserService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
   }
 
+  updateUser(username: String, password: String, firstname: String, lastname: String) {
+    const updateUser = new User(this.user._id, username, password, firstname, lastname);
+    this.userService.updateUser(updateUser).subscribe((user: User) => {
+      this.user = user;
+    });
+  }
+
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      this.userId = params['userId'];
+      this.userId = params['uid'];
       return this.userService.findUserById(this.userId)
         .subscribe((user: User) => {
           this.user = user;
+          this.password = user.password;
+          this.username = user.username;
+          this.firstname = user.firstName;
+          this.lastname = user.lastName;
         });
     });
   }

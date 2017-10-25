@@ -1,47 +1,42 @@
 <div class="container">
-  <div *ngIf="errorFlag"
-       class="alert alert-danger">
-    {{errorMsg}}
-  </div>
-  <h1>Login</h1>
-  <form (ngSubmit) = "login()" #f = "ngForm">
-    <input [(ngModel)] = "username"
-           placeholder="username"
-           name = "username"
-           type="text"
-           class="form-control"
-           required
-           #username1 = "ngModel"/>
-    <span class="help-block" *ngIf="!username1.valid && username1.touched">
-      Please enter username!
-    </span>
 
-    <input [(ngModel)] = "password"
-           placeholder="password"
-           name = "password"
-           type="password"
-           class="form-control"
-           required
-           #password1 = "ngModel"/>
-  <br/>
-    <span class="help-block" *ngIf="!password1.valid && password1.touched">
-      Please enter password!
-    </span>
-    <a [routerLink] = "['/profile']" class="button">
-      <button  (click) = "login(username1 ,password1)"
-               class="btn btn-primary btn-block"
-               type = "submit"
-               [disabled] = "!f.valid">
-        Login
-      </button>
-    <br/>
-    </a>
-    <a [routerLink] = "['/register']" class="button  left-custom">
-      <button class="btn btn-success btn-block"
-               type = "submit"
-               [disabled] = "!f.valid">
-      Register
-        </button>
-    </a>
-  </form>
+
+
+  <h1>Login</h1>
+
+
+
+    <input    [(ngModel)] = "username"
+              placeholder="username"
+              name = "username"
+              type="text"
+              class="form-control"
+              required
+              #username1 = "ngModel"/>
+
+
+
+    <input   [(ngModel)] = "password"
+             placeholder="password"
+             name = "password"
+             type="password"
+             class="form-control"
+             required
+             #password1 = "ngModel"/>
+
+
+    <button class="btn btn-primary btn-block"
+            type="submit"
+            (click) = "login(username,password)">Login</button>
+      <br/>
+
+
+    <button class="btn btn-success btn-block"
+            (click)="register(username,password)">Register</button>
+
+
+
+
+
+
 </div>

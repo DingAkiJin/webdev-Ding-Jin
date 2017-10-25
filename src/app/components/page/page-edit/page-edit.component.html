@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/profile',userId,'website',wId,'page']" class="navbar-link">
+      <a [routerLink]="['/profile',userId,'website',wid,'page']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -20,7 +20,7 @@
 
     <!--check mark-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId,'website',wId,'page']" class="navbar-link">
+      <a (click) = "updatePages(name, title)" class="navbar-link">
         <span class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
@@ -46,13 +46,18 @@
     name = "name"/>
 
   <p >Title</p>
-  <input class="form-control "
+  <input [(ngModel)] = "title"
+         class="form-control "
          placeholder="Page Title"
+         name = "title"
          />
-  <a [routerLink]="['/profile',userId,'website',wId,'page']" class="button">
-    <button class="btn btn-danger btn-block top-custom">
+  <a [routerLink]="['/profile',userId,'website',wid,'page']" class="button">
+    <button (click)="deletePage(wid,pid)"
+      class="btn btn-danger btn-block top-custom">
       Delete
     </button>
   </a>
+
+
 
 </div>

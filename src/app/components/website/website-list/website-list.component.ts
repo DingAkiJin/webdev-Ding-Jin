@@ -28,7 +28,7 @@ export class WebsiteListComponent implements OnInit {
   selectWebsite(WebsiteId: String) {
     this._websiteService.findWebsiteById(this.uid, WebsiteId)
       .subscribe((website) => {
-      this.website = website;
+        this.website = website;
         this.websiteName = this.website.name;
       });
   }
@@ -36,7 +36,7 @@ export class WebsiteListComponent implements OnInit {
     this._websiteService.deleteWebsite( websiteId, this.uid)
       .subscribe(
         (websites) => {
-         this.websites = websites;
+          this.websites = websites;
         });
   }
   ngOnInit() {
@@ -45,9 +45,9 @@ export class WebsiteListComponent implements OnInit {
         this.uid = params['uid'];
         this._websiteService
           .findWebsitesByUser(this.uid).subscribe(
-            (websites) => {
-              this.websites = websites;
-            });
+          (websites) => {
+            this.websites = websites;
+          });
       });
   }
 

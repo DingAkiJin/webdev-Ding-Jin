@@ -1,38 +1,37 @@
 <div class="container-fluid">
   <h1>Register</h1>
-  <form (ngSubmit) = "createUser(username,password)" #f = "ngForm">
+
   <input [(ngModel)] = "username"
          placeholder="username"
          type="text"
          id="username"
          class="form-control"
-          name = "username"
-         #username1 = "ngModel"/>
+          name = "username"/>
   <input [(ngModel)]="password"
          placeholder="password"
          type="password"
          id="password"
          class="form-control"
          name = "password"
-         #password1 = "ngModel"
           />
   <input placeholder="verify password"
+         [(ngModel)] = "vpassword"
+         name = "vpassword"
          type="password"
          id="verify password"
          class="form-control"
          />
-  <a [routerLink]="['/profile']" class="btn btn-primary btn-block">
-    <button  (click) = "createUser(username,password)"
+  <a (click) ="regSuccess()" class="btn btn-primary btn-block">
+    <button
              class="btn btn-primary btn-block"
              type = "submit"
              [disabled] = "!f.valid">
     Register
     </button>
   </a>
-  <a [routerLink]="['/login']" class="buttom">
+  <a  (click)="deleteUser(user._id)"  class="buttom">
     <button class="btn btn-danger btn-block left-custom">
       Cancel
     </button>
   </a>
-  </form>
 </div>

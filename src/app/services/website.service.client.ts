@@ -23,7 +23,7 @@ export class WebsiteService {
     'deleteWebsite': this.deleteWebsite,
     'findAllWebsites': this.findAllWebsites,
   };
-  updateWebsite(uid: String, newWebsite: Website){
+  updateWebsite(uid: String, newWebsite: Website) {
     const url = 'http://localhost:3100/api/user/' + uid + '/website/' + newWebsite._id;
     return this.http.put(url, newWebsite)
       .map((res: Response) => {

@@ -17,14 +17,15 @@ export class PageListComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
-        (params: any) => {
-          this.wId = params['wid'];
+        (params) => {
           this.userId = params['uid'];
-
-        }
-      );
-
-    this.pages = this._pageService.findPageByWebsiteId(this.wId);
+          this.wId = params['wid'];
+          this._pageService
+            .findAllPagesForWebsite(this.userId, this.wId).subscribe(
+            (pages) => {
+              this.pages = pages;
+            });
+        });
   }
 
 }

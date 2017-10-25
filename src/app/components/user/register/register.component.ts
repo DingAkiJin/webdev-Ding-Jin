@@ -12,26 +12,41 @@ import 'rxjs/Rx';
 })
 export class RegisterComponent implements OnInit {
 
-  @ViewChild('f') createUserForm: NgForm;
   username: String;
   password: String;
-  user0: User ;
+  vpassword: String;
+  user: User;
+  userId: String;
+  users: User[];
 
-  errorFlag: boolean
-  errorMsg = 'Invalid username or password !';
 
-  constructor( private userservice: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute ) {
 
   }
+  deleteUser(uid: String) {
+    this.userService.deleteUser(uid)
+      .subscribe(
+        (users) => {
+          this.users = users;
+        });
+  }
+  regSuccess() {
+   if ( this.password === this.vpassword) {
+     this.router.navigate(['/profile', this.user._id]);
+   }
+  }
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['uid'];
+      return this.userService.findUserById(this.userId)
+        .subscribe((user: User) => {
+          this.user = user;
+          this.username = user.username;
+          this.password = user.password;
+        });
+    });
+  }
 
-  ngOnInit() {}
-  createUser(username, password) {
-    const user: User = new User('', username, password , '' , '' );
-    this.userservice.createUser(user)
-      .subscribe((user0) => {
-        this.user0 = user0;
-      });
-  }
-  }
+}
 
 

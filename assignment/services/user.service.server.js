@@ -1,20 +1,53 @@
 module.exports = function(app){
   app.get("/api/user/:userId",findUserById);
   app.get("/api/user",findUsers);
-  app.post("/api/user",createNewUser);
+  app.post("/api/user",createUser);
+  app.put("/api/user/:uid",updateUser);
+  app.delete("/api/user/:uid",deleteUser);
+
   var users = [
     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
     {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
     {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
   ];
+  function deleteUser(reg, res) {
+    var uid = reg.params['uid'];
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]._id === uid) {
+        users.splice(i, 1);
+        res.json(users);
+        return;
+      }
+    }
 
-function createNewUser(reg, res){
-  var user = res.body;
-  user._id = (Math.floor( Math.random() * 999 ) + 100 ).toString();
-  users.push(user);
-  res.json(user);
+  }
 
+  function updateUser(reg, res){
+    var uid = reg.params['uid'];
+    var updateUser = reg.body;
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]._id === uid) {
+        users[i] = updateUser;
+        res.json(users[i]);
+        return;
+      }
+    }
+
+  }
+  function getUserById(uid) {
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]._id === uid) {
+        return users[i];
+      }
+    }
+  }
+
+  function createUser(reg,res){
+    var user = reg.body;
+    user._id = (Math.floor(Math.random() * 999) + 100 ).toString();
+    users.push(user);
+    res.json(user);
   }
 
   function findUserById(reg, res){

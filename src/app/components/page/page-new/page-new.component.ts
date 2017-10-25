@@ -10,12 +10,11 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./page-new.component.css']
 })
 export class PageNewComponent implements OnInit {
-
-  @ViewChild('f') createPageForm: NgForm;
   name: String;
   title: String;
   userId: String;
   websiteId: String;
+  pages: Page[];
 
   constructor(private _pageService: PageService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -29,14 +28,12 @@ export class PageNewComponent implements OnInit {
         }
       );
   }
-
-  createNewPage() {
-    this.name = this.createPageForm.value.name;
-    this.title = this.createPageForm.value.title;
-    const page: Page = this._pageService.createPage(this.name, this.title);
-    if (page) {
-      this.router.navigate(['/profile', this.userId, 'website', this.websiteId, 'page']);
-    }
+  createPage(name: String, title: String) {
+    const page0: Page = new Page('', name , '456' , title);
+    this._pageService.createPage('456', page0)
+      .subscribe((pages) => {
+        this.pages = pages;
+      });
 
   }
 }

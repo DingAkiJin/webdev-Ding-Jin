@@ -9,29 +9,35 @@ import {Website} from '../../../models/website.model.client';
   styleUrls: ['./website-edit.component.css']
 })
 export class WebsiteEditComponent implements OnInit {
-  id: String;
+  wid: String;
   website: Website;
   name: String;
   developerId: String;
   description: String;
   websites: Website[];
-  userId: String;
+  uid: String;
   constructor(private websiteService: WebsiteService,
               private activatedRoute: ActivatedRoute) { }
-
+  updateWebsits(websiteName: String, description: String) {
+    const newWebsite = new Website(this.website._id, websiteName, this.website.developerId , description);
+    this.websiteService.updateWebsite(this.uid, newWebsite)
+      .subscribe((website) => {
+        this.website = website;
+      });
+  }
 
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
-          this.id = params['wid'];
-        }
-      );
-    // this.website = this.websiteService.findWebsiteById(this.id);
-    // name = this.website.name;
-    // this.developerId = this.website.developerId;
-    // this.description = this.website.description;
-    // this.websites = this.websiteService.findWebsitesByUser(this.userId);
+          this.wid = params['wid'];
+          this.uid = params['uid'];
+          this.websiteService
+            .findWebsiteById(this.uid, this.wid).subscribe(
+            (website) => {
+              this.website = website;
+            });
+        });
   }
 
 }

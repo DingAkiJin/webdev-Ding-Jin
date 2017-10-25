@@ -20,7 +20,7 @@
 
     <!--check mark-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile', userId,'website', websiteId,'page']" class="navbar-link">
+      <a (click)="createPage(name, title)" class="navbar-link">
         <span  class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
@@ -40,13 +40,17 @@
 
 <div class=" container-fluid top-custom ">
   <lable>Name</lable>
-  <input class="form-control"
+  <input [(ngModel)] = "name"
+         name = "name"
+         class="form-control"
          placeholder="Page Name"
          required
         />
 
   <lable >Title</lable>
-  <input class="form-control "
+  <input [(ngModel)] = "title"
+         name = "title"
+         class="form-control "
          placeholder="Page Title"
          required/>
 
