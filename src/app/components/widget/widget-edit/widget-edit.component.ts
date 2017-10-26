@@ -15,7 +15,7 @@ export class WidgetEditComponent implements OnInit {
   pId: String;
   websiteId: String;
   widgetId: String;
-  widget: Widget;
+  widget = {widgetType: ''};
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
 
@@ -27,10 +27,11 @@ export class WidgetEditComponent implements OnInit {
           this.pId = params['pid'];
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];
-        }
-      );
-    this.widget = this.widgetService.findWidgetById(this.widgetId);
-    console.log(this.widget = this.widgetService.findWidgetById(this.widgetId));
+        });
+    this.widgetService.findWidgetById(this.widgetId)
+      .subscribe((widget0: Widget) => {
+        this.widget.widgetType = widget0.widgetType.toString();
+      });
   }
 
 }

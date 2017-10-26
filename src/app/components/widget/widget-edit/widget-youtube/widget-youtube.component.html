@@ -18,7 +18,8 @@
     </div>
     <!--check mark-->
     <p class="navbar-text pull-right ">
-      <a [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="navbar-link">
+      <a (click) = "updateWidget(text, url, width)"
+        [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="navbar-link">
         <span class="glyphicon glyphicon-ok "></span>
       </a>
     </p>
@@ -44,7 +45,10 @@
          class="form-control"
           name = "widgetType"/>
   <lable>Text</lable>
-  <input class="form-control" type="text"/>
+  <input [(ngModel)]="text"
+         class="form-control"
+         name = "text"
+         type="text"/>
   <lable>URL</lable>
   <input [(ngModel)] = "url"
          class="form-control"
@@ -56,7 +60,7 @@
          class="form-control"
           name ="width"/>
   <a [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="button">
-    <button class="btn btn-danger btn-block ">
+    <button (click)="deleteWidget(pId,widgetId)" class="btn btn-danger btn-block ">
       Delete
     </button>
   </a>

@@ -86,7 +86,7 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
           </p>
         </div>
-        <img width= 100% src={{widget.url}}>
+        <img  [style.width] = "widget.width" src={{widget.url}}>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
           </p>
         </div>
         <div>
-          <p><iframe width=100% height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(widget.url)' frameborder="0" allowfullscreen></iframe></p>
+          <p><iframe width={{widget.width}} height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(widget.url)' frameborder="0" allowfullscreen></iframe></p>
         </div>
       </div>
     <h1>youtube</h1>

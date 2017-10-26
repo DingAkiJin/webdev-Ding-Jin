@@ -19,8 +19,23 @@ export class WidgetImageComponent implements OnInit {
   width: String;
   url: String;
   text: String;
+  widgets: Widget[];
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
+  updateWidget(text: String, url: String, width: String) {
+    const newWidget = new Widget(this.widgetId, 'IMAGE', this.pId , 0 , '', this.width, this.url);
+    this.widgetService.updateWidget(this.pId, this.widgetId, newWidget)
+      .subscribe((widget) => {
+        this.widget = widget;
+      });
+  }
+  deleteWidget(pid: String, wgid: String) {
+    this.widgetService.deleteWidget(pid, wgid)
+      .subscribe(
+        (widgets) => {
+          this.widgets = widgets;
+        });
+  }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -30,12 +45,16 @@ export class WidgetImageComponent implements OnInit {
           this.pId = params['pid'];
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];
-        }
-      );
-    this.widget = this.widgetService.findWidgetById(this.widgetId);
-    this.widgetType = this.widget.widgetType;
-    this.width = this.widget.width;
-    this.url = this.widget.url;
-    this.text = this.widget.text;
+          this.widgetService.findWidgetById(this.widgetId)
+            .subscribe((widget0: Widget) => {
+              if (widget0) {
+                this.widget = widget0;
+                this.widgetType = widget0.widgetType;
+                this.width = widget0.width;
+                this.url = widget0.url;
+                this.text = widget0.text;
+              }
+            });
+        });
   }
 }

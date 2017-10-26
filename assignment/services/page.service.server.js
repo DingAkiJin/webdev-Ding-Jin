@@ -35,8 +35,9 @@ module.exports = function(app) {
       }
     }
   }
-  function findAllPagesForWebsite(req, res) {
-    res.json(pages);
+  function findAllPagesForWebsite(reg, res) {
+    var wid = reg.params['wid'];
+    res.json(getPagesForWebsiteId(wid));
   }
   function findPageById(reg,res){
     var pid = reg.params['pid'];
@@ -59,7 +60,7 @@ module.exports = function(app) {
         PAGES.push(pages[i]);
       }
     }
-    return pages;
+    return PAGES;
   }
   function createPage(reg, res) {
     var wid = reg.params['wid'];

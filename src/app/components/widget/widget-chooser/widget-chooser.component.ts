@@ -7,18 +7,17 @@ import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-widget-chooser',
   templateUrl: './widget-chooser.component.html',
-   styleUrls: ['./widget-chooser.component.css']
+  styleUrls: ['./widget-chooser.component.css']
 })
 export class WidgetChooserComponent implements OnInit {
-
-  @ViewChild('f') createWidgetForm: NgForm;
   userId: String;
   pId: String;
   websiteId: String;
   widgetId: String;
-  widgetHeader: Widget;
+  widget: Widget;
   widgetImage: Widget;
   widgetYoutube: Widget;
+  widgets: Widget[];
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute,
               private router: Router) { }
@@ -32,8 +31,17 @@ export class WidgetChooserComponent implements OnInit {
           this.websiteId = params['wid'];
         }
       );
-    this.widgetHeader = this.widgetService.createWidgetHeader(this.pId);
-    this.widgetImage = this.widgetService.createWidgetImage(this.pId);
-    this.widgetYoutube = this.widgetService.createWidgetYoutube(this.pId);
+
   }
+  createWidget(widgetType: String) {
+    const widget:  Widget = new Widget('', widgetType, this.pId, 0, '' , '' , '');
+    this.widgetService.createWidget(this.pId , widget)
+      .subscribe((widget0: Widget) => {
+        if (widget0) {
+          this.router.navigate(['/profile', this.userId , 'website', this.websiteId, 'page' , this.pId , 'widget', widget0._id]);
+        }
+      });
+
+  }
+
 }

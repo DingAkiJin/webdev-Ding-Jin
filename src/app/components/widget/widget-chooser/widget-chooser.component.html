@@ -34,8 +34,8 @@
 <!-- website lists -->
 <div class="container-fluid top-custom ">
   <ul class="list-group">
-    <li class="list-group-item">
-      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetHeader._id]">
+    <li (click) = "createWidget('HEADING')"class="list-group-item">
+      <a >
         Header
       </a>
     </li>
@@ -67,14 +67,14 @@
 
       </a>
     </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetImage._id]">
+    <li (click) = "createWidget('IMAGE')" class="list-group-item">
+      <a >
         Image
 
       </a>
     </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget',widgetYoutube._id]">
+    <li (click) = "createWidget('YOUTUBE')" class="list-group-item">
+      <a >
         YouTube
 
       </a>
@@ -93,3 +93,4 @@
     </li>
   </ul>
 </div>
+
