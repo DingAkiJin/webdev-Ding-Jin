@@ -838,7 +838,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Register</h1>\n\n  <input [(ngModel)] = \"username\"\n         placeholder=\"username\"\n         type=\"text\"\n         id=\"username\"\n         class=\"form-control\"\n          name = \"username\"/>\n  <input [(ngModel)]=\"password\"\n         placeholder=\"password\"\n         type=\"password\"\n         id=\"password\"\n         class=\"form-control\"\n         name = \"password\"\n          />\n  <input placeholder=\"verify password\"\n         [(ngModel)] = \"vpassword\"\n         name = \"vpassword\"\n         type=\"password\"\n         id=\"verify password\"\n         class=\"form-control\"\n         />\n  <a (click) =\"regSuccess()\" class=\"btn btn-primary btn-block\">\n    <button\n             class=\"btn btn-primary btn-block\"\n             type = \"submit\"\n             [disabled] = \"!f.valid\">\n    Register\n    </button>\n  </a>\n  <a  (click)=\"deleteUser(user._id)\"  class=\"buttom\">\n    <button class=\"btn btn-danger btn-block left-custom\">\n      Cancel\n    </button>\n  </a>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Register</h1>\n\n  <input [(ngModel)] = \"username\"\n         placeholder=\"username\"\n         type=\"text\"\n         id=\"username\"\n         class=\"form-control\"\n          name = \"username\"/>\n  <input [(ngModel)]=\"password\"\n         placeholder=\"password\"\n         type=\"password\"\n         id=\"password\"\n         class=\"form-control\"\n         name = \"password\"\n          />\n  <input placeholder=\"verify password\"\n         [(ngModel)] = \"vpassword\"\n         name = \"vpassword\"\n         type=\"password\"\n         id=\"verify password\"\n         class=\"form-control\"\n         />\n  <a (click) =\"regSuccess()\" class=\"btn btn-primary btn-block\">\n    <button\n             class=\"btn btn-primary btn-block\"\n             type = \"submit\"\n             >\n    Register\n    </button>\n  </a>\n  <a  (click)=\"deleteUser(user._id)\"  class=\"buttom\">\n    <button class=\"btn btn-danger btn-block left-custom\">\n      Cancel\n    </button>\n  </a>\n</div>\n"
 
 /***/ }),
 
@@ -2174,9 +2174,14 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: true,
-    baseUrl: ''
+    production: false,
+    baseUrl: 'http://localhost:3100'
 };
 //# sourceMappingURL=environment.js.map
 

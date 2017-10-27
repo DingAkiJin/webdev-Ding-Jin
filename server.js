@@ -5,10 +5,11 @@
 // Get the dependencies
 
 const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
 const path = require('path');
 const http = require('http');
+const bodyParser = require('body-parser');
+const app = express();
+
 
 
 
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Point static path to dist -- For building -- REMOVE
-app.use(express.static(path.join(__dirname, 'dist')));
+ app.use(express.static(path.join(__dirname, 'dist')));
 
 
 
@@ -35,7 +36,7 @@ app.use(function(req, res, next) {
 
 
 
-const port = process.env.PORT || '443';
+const port = process.env.PORT || '3100';
 app.set('port', port);
 
 
