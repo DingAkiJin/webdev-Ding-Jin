@@ -14,7 +14,7 @@ export class WebsiteService {
 
   constructor(private http: Http) {
   }
-
+  baseUrl = environment.baseUrl;
 
   api = {
     'createWebsite': this.createWebsite,
@@ -24,7 +24,7 @@ export class WebsiteService {
     'findAllWebsites': this.findAllWebsites,
   };
   updateWebsite(uid: String, newWebsite: Website) {
-    const url = 'http://localhost:3100/api/user/' + uid + '/website/' + newWebsite._id;
+    const url = this.baseUrl + '/api/user/' + uid + '/website/' + newWebsite._id;
     return this.http.put(url, newWebsite)
       .map((res: Response) => {
       return res.json();
@@ -32,7 +32,7 @@ export class WebsiteService {
   }
 
   findWebsitesByUser(uid: String) {
-    const url = 'http://localhost:3100/api/user/' + uid + '/website';
+    const url = this.baseUrl + '/api/user/' + uid + '/website';
     return this.http.get(url)
       .map((res: Response) => {
         return res.json();
@@ -40,7 +40,7 @@ export class WebsiteService {
   }
 
   findAllWebsites() {
-    return this.http.get('http://localhost:3100/api/website')
+    return this.http.get(this.baseUrl + '/api/website')
       .map(
         (res: Response) => {
           const data = res.json();
@@ -50,7 +50,7 @@ export class WebsiteService {
   }
 
   createWebsite(uid: String, website: Website) {
-    const url = 'http://localhost:3100/api/user/' + uid + '/website';
+    const url = this.baseUrl + '/api/user/' + uid + '/website';
     return this.http.post(url, website)
       .map((response: Response) => {
         return response.json();
@@ -58,7 +58,7 @@ export class WebsiteService {
   }
 
   findWebsiteById(uid: String, websiteId: String) {
-    const url = 'http://localhost:3100/api/user/' + uid + '/website/' + websiteId;
+    const url = this.baseUrl + '/api/user/' + uid + '/website/' + websiteId;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
@@ -66,7 +66,7 @@ export class WebsiteService {
   }
 
   deleteWebsite(websiteId: String, uid: String) {
-    const url = 'http://localhost:3100/api/user/' + uid + '/website/' + websiteId;
+    const url = this.baseUrl + '/api/user/' + uid + '/website/' + websiteId;
     return this.http.delete(url)
       .map((response: Response) => {
         return response.json();

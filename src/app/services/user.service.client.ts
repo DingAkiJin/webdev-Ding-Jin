@@ -38,7 +38,7 @@ export class UserService {
       return response.json();
       });
   }
-  findUserByUsername(username: String){
+  findUserByUsername(username: String) {
     const url = this.baseUrl + '/api/user?username=' + username;
     return this.http.get(url)
       .map((response: Response) => {

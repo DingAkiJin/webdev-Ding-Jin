@@ -12,15 +12,16 @@ export class WidgetService {
 
   constructor(private http: Http) {
   }
+  baseUrl = environment.baseUrl;
   findAllWidgetsForPage(uid: String, wid: String, pid: String) {
-    const url = 'http://localhost:3100/api/page/' + pid + '/widget';
+    const url = this.baseUrl + '/api/page/' + pid + '/widget';
     return this.http.get(url)
       .map((res: Response) => {
         return res.json();
       });
   }
   createWidget(pid: String, widget: Widget) {
-     const url = 'http://localhost:3100/api/page/' + pid + '/widget';
+     const url = this.baseUrl + '/api/page/' + pid + '/widget';
      return this.http.post(url, widget)
        .map((response: Response) => {
          return response.json();
@@ -36,14 +37,14 @@ export class WidgetService {
 
   }
   findWidgetById(wgid: String) {
-    const url = 'http://localhost:3100/api/widget/' + wgid ;
+    const url = this.baseUrl + '/api/widget/' + wgid ;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();
       });
   }
   updateWidget(pid: String, wgid: String, newWidget: Widget) {
-    const url = 'http://localhost:3100/api/page/' + pid + '/widget/' + wgid  ;
+    const url = this.baseUrl + '/api/page/' + pid + '/widget/' + wgid  ;
     return this.http.put(url, newWidget)
       .map((res: Response) => {
         return res.json();
@@ -52,7 +53,7 @@ export class WidgetService {
 
 
   deleteWidget(pid: String, wgid: String) {
-    const url = 'http://localhost:3100/api/page/' + pid + '/widget/' + wgid  ;
+    const url = this.baseUrl + '/api/page/' + pid + '/widget/' + wgid  ;
     return this.http.delete(url)
       .map((response: Response) => {
         return response.json();

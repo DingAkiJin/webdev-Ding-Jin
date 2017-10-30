@@ -1835,6 +1835,7 @@ var Widget = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1847,27 +1848,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var PageService = (function () {
     function PageService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
     }
     PageService.prototype.findAllPagesForWebsite = function (uid, wid) {
-        var url = 'http://localhost:3100/api/website/' + wid + '/page';
+        var url = this.baseUrl + '/api/website/' + wid + '/page';
         return this.http.get(url)
             .map(function (res) {
             return res.json();
         });
     };
     PageService.prototype.findPageById = function (wid, pid) {
-        var url = 'http://localhost:3100/api/website/' + wid + '/page/' + pid;
+        var url = this.baseUrl + '/api/website/' + wid + '/page/' + pid;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     PageService.prototype.createPage = function (wid, page) {
-        var url = 'http://localhost:3100/api/website/' + wid + '/page';
+        var url = this.baseUrl + '/api/website/' + wid + '/page';
         return this.http.post(url, page)
             .map(function (response) {
             return response.json();
@@ -1876,14 +1879,14 @@ var PageService = (function () {
     PageService.prototype.findPageByWebsiteId = function (websiteId) {
     };
     PageService.prototype.updatePage = function (wid, pid, newPage) {
-        var url = 'http://localhost:3100/api/website/' + wid + '/page/' + newPage._id;
+        var url = this.baseUrl + '/api/website/' + wid + '/page/' + newPage._id;
         return this.http.put(url, newPage)
             .map(function (res) {
             return res.json();
         });
     };
     PageService.prototype.deletePage = function (wid, pid) {
-        var url = 'http://localhost:3100/api/website/' + wid + '/page/' + pid;
+        var url = this.baseUrl + '/api/website/' + wid + '/page/' + pid;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2012,7 +2015,8 @@ var WEBSITES = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__website_mock_client__ = __webpack_require__("../../../../../src/app/services/website.mock.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__website_mock_client__ = __webpack_require__("../../../../../src/app/services/website.mock.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2026,11 +2030,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var WebsiteService = (function () {
     function WebsiteService(http) {
         this.http = http;
-        this.websites = __WEBPACK_IMPORTED_MODULE_3__website_mock_client__["a" /* WEBSITES */];
+        this.websites = __WEBPACK_IMPORTED_MODULE_4__website_mock_client__["a" /* WEBSITES */];
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
         this.api = {
             'createWebsite': this.createWebsite,
             'findWebsiteById': this.findWebsiteById,
@@ -2040,42 +2046,42 @@ var WebsiteService = (function () {
         };
     }
     WebsiteService.prototype.updateWebsite = function (uid, newWebsite) {
-        var url = 'http://localhost:3100/api/user/' + uid + '/website/' + newWebsite._id;
+        var url = this.baseUrl + '/api/user/' + uid + '/website/' + newWebsite._id;
         return this.http.put(url, newWebsite)
             .map(function (res) {
             return res.json();
         });
     };
     WebsiteService.prototype.findWebsitesByUser = function (uid) {
-        var url = 'http://localhost:3100/api/user/' + uid + '/website';
+        var url = this.baseUrl + '/api/user/' + uid + '/website';
         return this.http.get(url)
             .map(function (res) {
             return res.json();
         });
     };
     WebsiteService.prototype.findAllWebsites = function () {
-        return this.http.get('http://localhost:3100/api/website')
+        return this.http.get(this.baseUrl + '/api/website')
             .map(function (res) {
             var data = res.json();
             return data;
         });
     };
     WebsiteService.prototype.createWebsite = function (uid, website) {
-        var url = 'http://localhost:3100/api/user/' + uid + '/website';
+        var url = this.baseUrl + '/api/user/' + uid + '/website';
         return this.http.post(url, website)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.findWebsiteById = function (uid, websiteId) {
-        var url = 'http://localhost:3100/api/user/' + uid + '/website/' + websiteId;
+        var url = this.baseUrl + '/api/user/' + uid + '/website/' + websiteId;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     WebsiteService.prototype.deleteWebsite = function (websiteId, uid) {
-        var url = 'http://localhost:3100/api/user/' + uid + '/website/' + websiteId;
+        var url = this.baseUrl + '/api/user/' + uid + '/website/' + websiteId;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2102,6 +2108,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2114,20 +2121,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // injecting service into module
 var WidgetService = (function () {
     function WidgetService(http) {
         this.http = http;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
     }
     WidgetService.prototype.findAllWidgetsForPage = function (uid, wid, pid) {
-        var url = 'http://localhost:3100/api/page/' + pid + '/widget';
+        var url = this.baseUrl + '/api/page/' + pid + '/widget';
         return this.http.get(url)
             .map(function (res) {
             return res.json();
         });
     };
     WidgetService.prototype.createWidget = function (pid, widget) {
-        var url = 'http://localhost:3100/api/page/' + pid + '/widget';
+        var url = this.baseUrl + '/api/page/' + pid + '/widget';
         return this.http.post(url, widget)
             .map(function (response) {
             return response.json();
@@ -2140,21 +2149,21 @@ var WidgetService = (function () {
     WidgetService.prototype.createWidgetYoutube = function (pageId) {
     };
     WidgetService.prototype.findWidgetById = function (wgid) {
-        var url = 'http://localhost:3100/api/widget/' + wgid;
+        var url = this.baseUrl + '/api/widget/' + wgid;
         return this.http.get(url)
             .map(function (response) {
             return response.json();
         });
     };
     WidgetService.prototype.updateWidget = function (pid, wgid, newWidget) {
-        var url = 'http://localhost:3100/api/page/' + pid + '/widget/' + wgid;
+        var url = this.baseUrl + '/api/page/' + pid + '/widget/' + wgid;
         return this.http.put(url, newWidget)
             .map(function (res) {
             return res.json();
         });
     };
     WidgetService.prototype.deleteWidget = function (pid, wgid) {
-        var url = 'http://localhost:3100/api/page/' + pid + '/widget/' + wgid;
+        var url = this.baseUrl + '/api/page/' + pid + '/widget/' + wgid;
         return this.http.delete(url)
             .map(function (response) {
             return response.json();
@@ -2177,14 +2186,9 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: false,
-    baseUrl: 'http://localhost:3100'
+    production: true,
+    baseUrl: ''
 };
 //# sourceMappingURL=environment.js.map
 
