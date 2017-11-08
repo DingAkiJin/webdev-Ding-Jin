@@ -23,7 +23,16 @@ export class WidgetImageComponent implements OnInit {
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
   updateWidget(text: String, url: String, width: String) {
-    const newWidget = new Widget(this.widgetId, 'IMAGE', this.pId , 0 , '', this.width, this.url);
+    // const newWidget = new Widget(this.widgetId, 'IMAGE', this.pId , 0 , '', this.width, this.url);
+    const newWidget = {
+      _id: this.widgetId,
+      widgetType:  'IMAGE',
+      pageId: this.pId,
+      size: 0,
+      text: text,
+      width: width,
+      url : url,
+    }
     this.widgetService.updateWidget(this.pId, this.widgetId, newWidget)
       .subscribe((widget) => {
         this.widget = widget;

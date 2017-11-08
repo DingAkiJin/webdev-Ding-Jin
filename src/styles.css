@@ -49,4 +49,7 @@ input{
   background-color:grey;
   padding: 3px;
   border-bottom-left-radius: 7px;
+  z-index: 1;
+
 }
+

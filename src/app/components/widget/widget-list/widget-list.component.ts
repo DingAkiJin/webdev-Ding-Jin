@@ -15,7 +15,7 @@ export class WidgetListComponent implements OnInit {
   pId: String;
   wId: String;
   userId: String;
-  widgets: Widget[];
+  widgets: [{}];
   constructor(private _widgetService: WidgetService, private activatedRoute: ActivatedRoute, public sanitizer: DomSanitizer) { }
 
   ngOnInit() {

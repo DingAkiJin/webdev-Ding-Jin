@@ -3,48 +3,44 @@ import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
 
-
 @Component({
-  selector: 'app-widget-youtube',
-  templateUrl: './widget-youtube.component.html',
-  styleUrls: ['./widget-youtube.component.css']
+  selector: 'app-widget-html',
+  templateUrl: './widget-html.component.html',
+  styleUrls: ['./widget-html.component.css']
 })
-export class WidgetYoutubeComponent implements OnInit {
-
+export class WidgetHtmlComponent implements OnInit {
   userId: String;
   pId: String;
   websiteId: String;
   widgetId: String;
-  widget: Widget;
+  widget: {};
   widgetType: String;
-  width: String;
-  url: String;
+  name: String;
   text: String;
-  widgets: Widget[];
+  widgets: {};
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
-  updateWidget(text: String, url: String, width: String) {
-    // const newWidget = new Widget(this.widgetId, 'YOUTUBE', this.pId , 0 , '', this.width, this.url);
-    const newWidget = {
-      _id: this.widgetId,
-      widgetType: 'YOUTUBE',
-      pageId: this.pId,
-      size: 0,
-      text: text,
-      width: width,
-      url : url
-    }
-    this.widgetService.updateWidget(this.pId, this.widgetId, newWidget)
-      .subscribe((widget) => {
-        this.widget = widget;
-      });
-  }
+
   deleteWidget(pid: String, wgid: String) {
     this.widgetService.deleteWidget(pid, wgid)
       .subscribe(
         (widgets) => {
           this.widgets = widgets;
         });
+  }
+  updateWidget(name: String, text: String) {
+    // const newWidget = new Widget(this.widgetId, 'HEADING', this.pId , size , text, '', '');
+    const newWidget = {
+      _id: this.widgetId,
+      widgetType:  'HTML',
+      pageId: this.pId,
+      text: text,
+      name: name,
+    }
+    this.widgetService.updateWidget(this.pId, this.widgetId, newWidget)
+      .subscribe((widget) => {
+        this.widget = widget;
+      });
   }
 
   ngOnInit() {
@@ -56,17 +52,15 @@ export class WidgetYoutubeComponent implements OnInit {
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];
           this.widgetService.findWidgetById(this.widgetId)
-            .subscribe((widget0: Widget) => {
+            .subscribe((widget0) => {
               if (widget0) {
                 this.widget = widget0;
                 this.widgetType = widget0.widgetType;
-                this.width = widget0.width;
-                this.url = widget0.url;
+                this.name = widget0.name;
                 this.text = widget0.text;
               }
             });
         });
-
   }
 
 }

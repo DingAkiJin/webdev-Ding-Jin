@@ -1,6 +1,3 @@
-/**
- * Created by sesha on 7/26/17.
- */
 
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';

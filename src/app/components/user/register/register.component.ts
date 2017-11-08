@@ -31,9 +31,27 @@ export class RegisterComponent implements OnInit {
         });
   }
   regSuccess() {
-   if ( this.password === this.vpassword) {
-     this.router.navigate(['/profile', this.user._id]);
-   }
+    this.userService.findUserByUsername(this.username)
+      .subscribe((user) => {
+      console.log(user);
+      if  (user === null)  {
+        const newUser = {
+          username: this.username ,
+          password: this.password
+      }
+        this.userService.createUser(newUser).subscribe((user1) => {
+          console.log(user1);
+          this.router.navigate(['/profile', user1._id]);
+          // if (user1) {
+            // this.router.navigate(['/register', user1._id]);
+          // }
+        });
+        // this.router.navigate(['/profile', this.user._id]);
+      }
+      });
+   // if ( this.password === this.vpassword) {
+   //   this.router.navigate(['/profile', this.user._id]);
+   // }
   }
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -46,6 +64,8 @@ export class RegisterComponent implements OnInit {
         });
     });
   }
+
+
 
 }
 

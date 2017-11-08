@@ -23,43 +23,62 @@ module.exports = function(app) {
   app.put('/api/page/:pid/widget/:wgid',updateWidget);
   app.delete('/api/page/:pid/widget/:wgid',deleteWidget);
 
+  var WidgetModel = require('../model/widget/widget.model.server')
+
   function deleteWidget(reg, res){
     var wgid = reg.params['wgid'];
-    for (var i = 0; i < widgets.length; i++) {
-      if (widgets[i]._id === wgid) {
-        widgets.splice(i, 1);
-        res.json(widgets);
-        return;
-      }
-    }
+    WidgetModel.deleteWidget(wgid)
+      .then(function(stats){
+        res.json(stats);
+      })
+    // for (var i = 0; i < widgets.length; i++) {
+    //   if (widgets[i]._id === wgid) {
+    //     widgets.splice(i, 1);
+    //     res.json(widgets);
+    //     return;
+    //   }
+    // }
   }
 
   function updateWidget(reg, res) {
     var pid = reg.params['pid'];
     var wgid = reg.params['wgid']
     var newWidget = reg.body;
-    for (var i = 0; i < widgets.length; i++) {
-      if (widgets[i]._id === wgid) {
-        widgets[i] = newWidget;
-        res.json(getWidgetById(wgid));
-        return;
-      }
-    }
+    WidgetModel.updateWidget(wgid, newWidget)
+      .then(function(stats){
+        res.json(stats);
+      })
+    // for (var i = 0; i < widgets.length; i++) {
+    //   if (widgets[i]._id === wgid) {
+    //     widgets[i] = newWidget;
+    //     res.json(getWidgetById(wgid));
+    //     return;
+    //   }
+    // }
 
   }
   function createWidget(reg, res){
     var pid = reg.params['pid'];
     var widget = reg.body;
-    widget._id = (Math.floor(Math.random() * 999) + 100 ).toString();
-    widgets.push(widget);
-    var widgets0 = getWidgetById(widget._id);
-    res.json(widgets0);
+    WidgetModel.createWidget(widget)
+      .then(function(newWidget){
+        res.json(newWidget);
+      })
+    // widget._id = (Math.floor(Math.random() * 999) + 100 ).toString();
+    // widgets.push(widget);
+    // var widgets0 = getWidgetById(widget._id);
+    // res.json(widgets0);
+
   }
 
 
   function findWidgetById(reg,res){
     var wgid = reg.params['wgid'];
-    res.json(getWidgetById(wgid));
+    // res.json(getWidgetById(wgid));
+    WidgetModel.findWidgetById(wgid)
+      .then(function(widget){
+        res.json(widget);
+      })
 
   }
   function getWidgetById(wgid) {
@@ -72,7 +91,11 @@ module.exports = function(app) {
 
   function findAllWidgetsForPage(reg, res) {
     var pid = reg.params['pid'];
-    res.json(getWidgetsForPageId(pid));
+    WidgetModel.findAllWidgetsForPage(pid)
+      .then(function (widgets) {
+        res.json(widgets);
+      })
+    // res.json(getWidgetsForPageId(pid));
   }
   function getWidgetsForPageId(pid) {
     var WIDGETS = [];

@@ -29,8 +29,14 @@ export class PageEditComponent implements OnInit {
   }
 
   updatePages(name: String, title: String) {
-    const newPage = new Page(this.pid, name, this.page.websiteId , title);
-    this.pageService.updatePage(this.wid, this.pid, newPage)
+    // const newPage = new Page(this.pid, name, this.page.websiteId , title);
+    const newPage = {
+      _id: this.page._id,
+      name: name,
+      websiteId: this.page.websiteId,
+      description: title
+    }
+    this.pageService.updatePage(this.wid, newPage)
       .subscribe((page) => {
         this.page = page;
       });

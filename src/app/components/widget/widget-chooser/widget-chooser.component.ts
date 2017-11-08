@@ -34,8 +34,12 @@ export class WidgetChooserComponent implements OnInit {
 
   }
   createWidget(widgetType: String) {
-    const widget:  Widget = new Widget('', widgetType, this.pId, 0, '' , '' , '');
-    this.widgetService.createWidget(this.pId , widget)
+    // const widget:  Widget = new Widget('', widgetType, this.pId, 0, '' , '' , '');
+    const newWidget = {
+      widgetType: widgetType,
+      pageId: this.pId,
+    }
+    this.widgetService.createWidget(this.pId , newWidget)
       .subscribe((widget0: Widget) => {
         if (widget0) {
           this.router.navigate(['/profile', this.userId , 'website', this.websiteId, 'page' , this.pId , 'widget', widget0._id]);

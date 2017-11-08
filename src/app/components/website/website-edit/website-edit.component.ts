@@ -19,7 +19,12 @@ export class WebsiteEditComponent implements OnInit {
   constructor(private websiteService: WebsiteService,
               private activatedRoute: ActivatedRoute) { }
   updateWebsits(websiteName: String, description: String) {
-    const newWebsite = new Website(this.website._id, websiteName, this.website.developerId , description);
+    const newWebsite = {
+      _id: this.website._id,
+      name: websiteName,
+      developerId: this.website.developerId,
+      description: description
+    }
     this.websiteService.updateWebsite(this.uid, newWebsite)
       .subscribe((website) => {
         this.website = website;

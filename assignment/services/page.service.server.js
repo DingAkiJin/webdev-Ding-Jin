@@ -11,15 +11,22 @@ module.exports = function(app) {
   app.put('/api/website/:wid/page/:pid',updatePage);
   app.delete('/api/website/:wid/page/:pid',deletePage);
 
+  var PageModel = require('../model/page/page.model.server')
+
   function deletePage(reg, res){
     var pid = reg.params['pid'];
-    for (var i = 0; i < pages.length; i++) {
-      if (pages[i]._id === pid) {
-        pages.splice(i, 1);
-        res.json(pages);
-        return;
-      }
-    }
+    PageModel
+      .deletePage(pid)
+      .then(function(stats){
+        res.json(stats);
+      })
+    // for (var i = 0; i < pages.length; i++) {
+    //   if (pages[i]._id === pid) {
+    //     pages.splice(i, 1);
+    //     res.json(pages);
+    //     return;
+    //   }
+    // }
   }
 
 
@@ -27,21 +34,37 @@ module.exports = function(app) {
     var pid = reg.params['pid'];
     var wid = reg.params['wid']
     var newPage = reg.body;
-    for (var i = 0; i < pages.length; i++) {
-      if (pages[i]._id === pid) {
-        pages[i] = newPage;
-        res.json(getPageById(pid));
-        return;
-      }
-    }
+    PageModel
+      .updatePage(pid, newPage)
+      .then(function(stats){
+       res.send(stats);
+
+      })
+    // for (var i = 0; i < pages.length; i++) {
+    //   if (pages[i]._id === pid) {
+    //     pages[i] = newPage;
+    //     res.json(getPageById(pid));
+    //     return;
+    //   }
+    // }
   }
   function findAllPagesForWebsite(reg, res) {
     var wid = reg.params['wid'];
-    res.json(getPagesForWebsiteId(wid));
+    // res.json(getPagesForWebsiteId(wid));
+    PageModel
+      .findAllPagesForWebsite(wid)
+      .then(function(pages){
+        res.json(pages);
+      })
   }
   function findPageById(reg,res){
     var pid = reg.params['pid'];
-    res.json(getPageById(pid));
+   // res.json(getPageById(pid));
+    PageModel
+      .findPageById(pid)
+      .then(function(page){
+        res.json(page);
+      })
 
   }
   function getPageById(pid) {
@@ -65,9 +88,13 @@ module.exports = function(app) {
   function createPage(reg, res) {
     var wid = reg.params['wid'];
     var page = reg.body;
-    page._id = (Math.floor(Math.random() * 999) + 100 ).toString();
-    pages.push(page);
-    var pages0 = getPagesForWebsiteId(wid);
-    res.json(pages0);
+    PageModel.createPage(page)
+      .then(function(page){
+        res.json(page);
+      })
+    // page._id = (Math.floor(Math.random() * 999) + 100 ).toString();
+    // pages.push(page);
+    // var pages0 = getPagesForWebsiteId(wid);
+    // res.json(pages0);
   }
 }

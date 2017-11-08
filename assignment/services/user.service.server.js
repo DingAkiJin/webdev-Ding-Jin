@@ -1,4 +1,5 @@
 module.exports = function(app){
+  var userModel = require("../model/user/user.model.server");
   app.get("/api/user/:userId",findUserById);
   app.get("/api/user",findUsers);
   app.post("/api/user",createUser);
@@ -13,26 +14,29 @@ module.exports = function(app){
   ];
   function deleteUser(reg, res) {
     var uid = reg.params['uid'];
-    for (var i = 0; i < users.length; i++) {
-      if (users[i]._id === uid) {
-        users.splice(i, 1);
-        res.json(users);
-        return;
-      }
-    }
+    userModel
+      .deleteUser(uid)
+      .then(function(stas){
+        res.send(stats);
+      })
+    // for (var i = 0; i < users.length; i++) {
+    //   if (users[i]._id === uid) {
+    //     users.splice(i, 1);
+    //     res.json(users);
+    //     return;
+    //   }
+    // }
 
   }
 
   function updateUser(reg, res){
     var uid = reg.params['uid'];
     var updateUser = reg.body;
-    for (var i = 0; i < users.length; i++) {
-      if (users[i]._id === uid) {
-        users[i] = updateUser;
-        res.json(users[i]);
-        return;
-      }
-    }
+   userModel
+     .updateUser(uid, updateUser)
+     .then(function(status){
+      res.send(status);
+     });
 
   }
   function getUserById(uid) {
@@ -44,44 +48,63 @@ module.exports = function(app){
   }
 
   function createUser(reg,res){
-    var user = reg.body;
-    user._id = (Math.floor(Math.random() * 999) + 100 ).toString();
-    users.push(user);
-    res.json(user);
+    var newUser = reg.body;
+    userModel.createUser(newUser)
+      .then(function(user){
+        res.json(user);
+      })
   }
 
   function findUserById(reg, res){
     var userId = reg.params["userId"];
-    var user = users.find(function (user){
-      return user._id=== userId;
-    });
-    res.json(user);
+    // var user = users.find(function (user){
+    //   return user._id=== userId;
+    // });
+
+    userModel.findUserById(userId)
+      .then(function(user){
+        res.json(user);
+      });
   }
 
   function findUsers(reg, res){
     var username = reg.query["username"];
     var password = reg.query["password"];
     if(username && password){
-      var user = users.find(function(user){
-        return user.username === username && user.password == password;
-      });
-      if(user){
+      var promise = userModel.findUserByCredentials(username, password);
+      promise.then(function(user){
         res.json(user);
-      }else{
-        res.json({});
-      }
+       console.log(result);
+
+      });
       return;
+      // var user = users.find(function(user){
+      //   return user.username === username && user.password == password;
+      // });
+      // if(user){
+      //   res.json(user);
+      // }else{
+      //   res.json({});
+      // }
+      // return;
     } else if(username){
-      var user = users.find(function(user){
-        return user.username === username;
-      });
-      if(user){
-        res.json(user);
-      }else{
-        res.json({});
-      }
+      userModel.findUserByUsername(username)
+        .then(function(user){
+          res.json(user);
+
+        })
       return;
     }
+    //   var user = users.find(function(user){
+    //     return user.username === username;
+    //   });
+    //   if(user){
+    //     res.json(user);
+    //   }else{
+    //     res.json({});
+    //   }
+    //   return;
+    // }
     res.json(users);
   }
 

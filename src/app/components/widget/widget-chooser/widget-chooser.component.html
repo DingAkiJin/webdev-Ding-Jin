@@ -44,13 +44,13 @@
         Label
       </a>
     </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget']">
+    <li (click) = "createWidget('HTML')" class="list-group-item">
+      <a >
         HTML
       </a>
     </li>
-    <li class="list-group-item">
-      <a [routerLink]="['/profile',userId,'website',websiteId,'page',pId,'widget']">
+    <li (click) = "createWidget('TEXT')" class="list-group-item">
+      <a >
         Text Input
 
       </a>

@@ -24,14 +24,14 @@ export class UserService {
         return response.json();
       });
   }
-  updateUser( updateUser: User) {
+  updateUser( updateUser) {
     const url = this.baseUrl + '/api/user/' + updateUser._id ;
     return this.http.put(url, updateUser)
       .map((response: Response) => {
         return response.json();
       });
   }
-  createUser( user: User) {
+  createUser(user) {
     const url = this.baseUrl + '/api/user' ;
     return this.http.post(url, user)
       .map((response: Response) => {

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { QuillEditorModule } from 'ngx-quill-editor';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -27,6 +28,8 @@ import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
+import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
+import { WidgetTextComponent } from './components/widget/widget-edit/widget-text/widget-text.component';
 
 
 @NgModule({
@@ -50,12 +53,15 @@ import {WidgetService} from './services/widget.service.client';
     WidgetYoutubeComponent,
     WidgetListComponent,
     WidgetEditComponent,
+    WidgetHtmlComponent,
+    WidgetTextComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    QuillEditorModule,
     Routing
   ],
   // Client Side services here

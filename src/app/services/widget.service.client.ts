@@ -20,7 +20,7 @@ export class WidgetService {
         return res.json();
       });
   }
-  createWidget(pid: String, widget: Widget) {
+  createWidget(pid, widget) {
      const url = this.baseUrl + '/api/page/' + pid + '/widget';
      return this.http.post(url, widget)
        .map((response: Response) => {
@@ -43,7 +43,7 @@ export class WidgetService {
         return response.json();
       });
   }
-  updateWidget(pid: String, wgid: String, newWidget: Widget) {
+  updateWidget(pid, wgid, newWidget) {
     const url = this.baseUrl + '/api/page/' + pid + '/widget/' + wgid  ;
     return this.http.put(url, newWidget)
       .map((res: Response) => {

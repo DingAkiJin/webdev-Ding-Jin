@@ -23,7 +23,13 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser(username: String, password: String, firstname: String, lastname: String) {
-    const updateUser = new User(this.user._id, username, password, firstname, lastname);
+    const updateUser = {
+      _id: this.user._id,
+      username: username ,
+      password: password,
+      firstName: firstname,
+      lastName: lastname,
+    }
     this.userService.updateUser(updateUser).subscribe((user: User) => {
       this.user = user;
     });

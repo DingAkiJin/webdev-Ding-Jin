@@ -15,8 +15,12 @@ export class WebsiteNewComponent implements OnInit {
   uid: String;
   constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
   createWebsite(websitename, description) {
-    const website: Website = new Website('', websitename , '' , description);
-    this._websiteService.createWebsite(this.uid, website)
+    // const website: Website = new Website('', websitename , '' , description);
+    const newWebsite = {
+      name: websitename ,
+      description: description
+    }
+    this._websiteService.createWebsite(this.uid, newWebsite)
       .subscribe((websites) => {
         this.websites = websites;
       });

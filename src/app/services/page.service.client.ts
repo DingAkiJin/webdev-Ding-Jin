@@ -28,7 +28,7 @@ export class PageService {
         return response.json();
       });
   }
-  createPage(wid: String, page: Page) {
+  createPage(wid, page) {
     const url = this.baseUrl + '/api/website/' + wid + '/page';
     return this.http.post(url, page)
       .map((response: Response) => {
@@ -40,7 +40,7 @@ export class PageService {
 
 
 
-  updatePage(wid: String, pid: String, newPage: Page) {
+  updatePage(wid,  newPage) {
     const url = this.baseUrl + '/api/website/' + wid + '/page/' + newPage._id ;
     return this.http.put(url, newPage)
       .map((res: Response) => {

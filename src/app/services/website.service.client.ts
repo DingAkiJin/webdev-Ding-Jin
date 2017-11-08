@@ -23,7 +23,7 @@ export class WebsiteService {
     'deleteWebsite': this.deleteWebsite,
     'findAllWebsites': this.findAllWebsites,
   };
-  updateWebsite(uid: String, newWebsite: Website) {
+  updateWebsite(uid, newWebsite) {
     const url = this.baseUrl + '/api/user/' + uid + '/website/' + newWebsite._id;
     return this.http.put(url, newWebsite)
       .map((res: Response) => {
@@ -49,7 +49,7 @@ export class WebsiteService {
       );
   }
 
-  createWebsite(uid: String, website: Website) {
+  createWebsite(uid: String, website) {
     const url = this.baseUrl + '/api/user/' + uid + '/website';
     return this.http.post(url, website)
       .map((response: Response) => {
