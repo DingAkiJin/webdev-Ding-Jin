@@ -16,14 +16,57 @@ module.exports = function(app) {
     {'_id': '789', 'widgetType': 'HTML', 'pageId': '321', 'text': '<p>Lorem ipsum</p>'}
 
   ];
+  var multer = require('multer'); // npm install multer --save
+  var upload = multer({ dest: __dirname+'/../../src/assets/uploads' });
 
   app.get('/api/page/:pid/widget', findAllWidgetsForPage);
   app.get('/api/widget/:wgid', findWidgetById);
   app.post('/api/page/:pid/widget', createWidget);
   app.put('/api/page/:pid/widget/:wgid',updateWidget);
   app.delete('/api/page/:pid/widget/:wgid',deleteWidget);
+  app.post ('/api/upload', upload.single('myFile'), uploadImage);
 
   var WidgetModel = require('../model/widget/widget.model.server')
+
+  function uploadImage(req, res) {
+    var userId = req.body.userId;
+    var websiteId = req.body.websiteId;
+    var pageId = req.body.pageId;
+
+
+    var widgetId      = req.body.widgetId;
+    var width         = req.body.width;
+    var myFile        = req.file;
+
+    if(myFile == null) {
+      res.redirect("http://localhost:4200/profile/"+ userId + "/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
+      return;
+    }
+
+
+    var originalname  = myFile.originalname; // file name on user's computer
+    var filename      = myFile.filename;     // new file name in upload folder
+    var path          = myFile.path;         // full path of uploaded file
+    var destination   = myFile.destination;  // folder where file is saved to
+    var size          = myFile.size;
+    var mimetype      = myFile.mimetype;
+
+
+    var widget = { url: "assets/uploads/"+filename};
+    WidgetModel
+      .updateWidget(widgetId, widget)
+      .then(function (stats) {
+          console.log(stats);
+
+        },
+        function (err) {
+          res.sendStatus(404).send(err);
+        });
+
+    res.redirect("http://localhost:4200/profile/"+ userId + "/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
+  }
+
+
 
   function deleteWidget(reg, res){
     var wgid = reg.params['wgid'];

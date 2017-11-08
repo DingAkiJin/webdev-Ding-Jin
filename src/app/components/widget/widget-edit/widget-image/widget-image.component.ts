@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-widget-image',
@@ -20,6 +21,8 @@ export class WidgetImageComponent implements OnInit {
   url: String;
   text: String;
   widgets: Widget[];
+  baseUrl: string;
+
   constructor(private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
   updateWidget(text: String, url: String, width: String) {
@@ -47,6 +50,7 @@ export class WidgetImageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.baseUrl = environment.baseUrl;
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
