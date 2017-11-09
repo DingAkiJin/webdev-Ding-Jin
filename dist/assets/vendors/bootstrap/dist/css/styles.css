@@ -1,0 +1,51 @@
+input{
+  margin-bottom: 5px;
+}
+
+.navbar-inverse {
+  background-color: steelblue !important;
+}
+.navbar-inverse .navbar-brand{color:white !important}
+.navbar-inverse .navbar-link{color:white !important;}
+
+
+.top-custom{
+  margin-top:70px;
+}
+.left-custom{
+  margin-top:5px;
+}
+.left-to-object{
+  margin-left:20px;
+  position:absolute;
+}
+.list-group-item{
+  border:hidden !important;
+  color:#428bca;
+
+}
+.my-navbar-top{position:absolute;
+  left:0;right:0;
+  z-index:1030;
+  border-width:0 0 0px;
+  border-radius:0}
+.img-middle{
+  vertical-align:middle ;
+  text-align:center ;
+  dispaly:table-cell
+}
+.home-header{
+  text-align:center;
+  font-family:Verdana;
+  font-size:300%;
+  background-color:powderblue
+}
+
+.webdev-widget .webdev-widget-toolbar{
+  position: absolute;
+  right: 0px;
+  background-color:grey;
+  padding: 3px;
+  border-bottom-left-radius: 7px;
+}
+
