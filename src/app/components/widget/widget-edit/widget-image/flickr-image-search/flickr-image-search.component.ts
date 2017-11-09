@@ -44,7 +44,7 @@ export class FlickrImageSearchComponent implements OnInit {
           val = val.replace('jsonFlickrApi(', '');
           val = val.substring(0, val.length - 1);
           val = JSON.parse(val);
-          this.photos = val.photos;
+          this.photos = val.photos['photo'];
         }
       );
 
