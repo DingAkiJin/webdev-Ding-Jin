@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { QuillEditorModule } from 'ngx-quill-editor';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
+
 import { AppComponent } from './app.component';
 import {HomeComponent} from './components/home/home/home.component';
 import { TestComponent } from './components/test/test/test.component';
@@ -30,6 +31,10 @@ import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
 import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
 import { WidgetTextComponent } from './components/widget/widget-edit/widget-text/widget-text.component';
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {FlickrService} from './services/flickr.service.client';
+import {SharedService} from './services/shared.service';
+
 
 
 @NgModule({
@@ -55,7 +60,7 @@ import { WidgetTextComponent } from './components/widget/widget-edit/widget-text
     WidgetEditComponent,
     WidgetHtmlComponent,
     WidgetTextComponent,
-
+    FlickrImageSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,7 @@ import { WidgetTextComponent } from './components/widget/widget-edit/widget-text
     Routing
   ],
   // Client Side services here
-  providers: [ UserService, WebsiteService, PageService, WidgetService],
+  providers: [ UserService, WebsiteService, PageService, WidgetService, FlickrService , SharedService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -53,103 +53,101 @@
 <div class="container-fluid top-custom ">
   <ul class="list-group">
 
-  <li *ngFor="let widget of widgets"
-       class="list-group-item">
+    <li *ngFor="let widget of widgets"
+        class="list-group-item">
 
-  <div [ngSwitch]="widget.widgetType">
+      <div [ngSwitch]="widget.widgetType">
 
-    <div *ngSwitchCase="'HEADING'">
-      <div class="container-fluid top-custom">
-        <div class="webdev-widget">
-          <div class="webdev-widget-toolbar">
-            <p class="glyphicon">
-              <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
-                <span class="glyphicon glyphicon-cog"></span>
-              </a>
-              <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </p>
+        <div *ngSwitchCase="'HEADING'">
+          <div class="container-fluid top-custom">
+            <div class="webdev-widget">
+              <div class="webdev-widget-toolbar">
+                <p class="glyphicon">
+                  <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                    <span class="glyphicon glyphicon-cog"></span>
+                  </a>
+                  <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </p>
+
+              </div>
+            </div>
 
           </div>
         </div>
+        <h1>{{widget.text}}</h1>
 
-      </div>
-    </div>
-    <h1>{{widget.text}}</h1>
-
-    <div *ngSwitchCase="'IMAGE'">
-      <div class="webdev-widget">
-        <div class="webdev-widget-toolbar">
-          <p class="glyphicon">
-            <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
-              <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </p>
-        </div>
-        <img  [style.width] = "widget.width" src={{widget.url}}>
-      </div>
-    </div>
-
-
-    <div *ngSwitchCase="'YOUTUBE'" >
-      <div class="webdev-widget">
-        <div class="webdev-widget-toolbar" >
-          <p class="glyphicon">
-            <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
-              <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </p>
-        </div>
-        <div class ="youtube-widget">
-          <p><iframe width={{widget.width}} height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(widget.url)' frameborder="0" allowfullscreen></iframe></p>
-        </div>
-      </div>
-    <h1>youtube</h1>
-    </div>
-
-    <div *ngSwitchCase="'HTML'" >
-      <div class="webdev-widget">
-        <div class="webdev-widget-toolbar">
-          <p class="glyphicon">
-            <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
-              <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </p>
-        </div>
-        <div  [innerHTML]="widget.text"></div>
-      </div>
-    </div>
-
-    <div *ngSwitchCase="'TEXT'">
-      <div class="webdev-widget">
-        <div class="webdev-widget-toolbar">
-          <p class="glyphicon">
-            <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
-              <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </p>
+        <div *ngSwitchCase="'IMAGE'">
+          <div class="webdev-widget">
+            <div class="webdev-widget-toolbar">
+              <p class="glyphicon">
+                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              </p>
+            </div>
+            <img  [style.width] = "widget.width" src={{widget.url}}>
+          </div>
         </div>
 
-      <div *ngIf="widget.formatted">
-        <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+
+        <div *ngSwitchCase="'YOUTUBE'" >
+          <div class="webdev-widget">
+            <div class="webdev-widget-toolbar" >
+              <p class="glyphicon">
+                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              </p>
+            </div>
+            <div class ="youtube-widget">
+              <p><iframe width={{widget.width}} height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(widget.url)' frameborder="0" allowfullscreen></iframe></p>
+            </div>
+          </div>
+          <h1>youtube</h1>
+        </div>
+
+        <div *ngSwitchCase="'HTML'" >
+          <div class="webdev-widget">
+            <div class="webdev-widget-toolbar">
+              <p class="glyphicon">
+                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              </p>
+            </div>
+            <div  [innerHTML]="widget.text"></div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'TEXT'">
+          <div class="webdev-widget">
+            <div class="webdev-widget-toolbar">
+              <p class="glyphicon">
+                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              </p>
+            </div>
+
+            <div *ngIf="widget.formatted">
+              <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+            </div>
+
+            <input *ngIf="!widget.formatted && (!widget.rows || widget.rows===1)"
+                   placeholder="{{widget.placeholder}}" class="form-control"/>
+
+            <textarea *ngIf="!widget.formatted && (widget.rows > 1)"
+                      rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+                      class="form-control">{{widget.text}}</textarea>
+          </div>
+        </div>
       </div>
 
-      <input *ngIf="!widget.formatted && (!widget.rows || widget.rows===1)"
-             placeholder="{{widget.placeholder}}" class="form-control"/>
 
-      <textarea *ngIf="!widget.formatted && (widget.rows > 1)"
-                rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
-                class="form-control">{{widget.text}}</textarea>
-    </div>
-    </div>
-  </div>
-
-
-   </li>
+    </li>
   </ul>
 </div>
-
-

@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="navbar-link">
+      <a [routerLink]="['/profile', userId,'website',websiteId,'page', pId,'widget']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -19,7 +19,7 @@
     <!--check mark-->
     <p class="navbar-text pull-right ">
       <a (click) = "updateWidget(text, url, width)"
-        [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="navbar-link">
+        [routerLink]="['/profile', userId,'website',websiteId,'page', pId,'widget']" class="navbar-link">
         <span class="glyphicon glyphicon-ok "></span>
       </a>
     </p>
@@ -60,19 +60,10 @@
          class="form-control"
          value="100%"
          name = "width"/>
-  <lable>Upload</lable>
-  <input  type="file" name="fileToUpload" id="fileToUpload">
 
-  <button class="btn btn-primary btn-block ">
-    Upload Image
-  </button>
-  <div class="left-custom">
-    <a [routerLink]="['/profile', userId,'website',widgetId,'page', pId,'widget']" class="button">
-      <button (click)="deleteWidget(pId,widgetId)" class="btn btn-danger btn-block ">
-        Delete
-      </button>
-    </a>
-  </div>
+
+
+
 
   <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
 
@@ -85,6 +76,19 @@
     <br/>
 
   </form>
+  <a class="btn btn-primary btn-block "
+
+     [routerLink]="['/profile/'+ userId + '/website/'+websiteId+'/page/'+pId+'/widget/'+widgetId+'/flickr']" >Choose From Flickr</a>
+
+
+  <div class="left-custom">
+    <a [routerLink]="['/profile', userId,'website',websiteId,'page', pId,'widget']" class="button">
+      <button (click)="deleteWidget(pId,widgetId)" class="btn btn-danger btn-block ">
+        Delete
+      </button>
+    </a>
+  </div>
+
 
 </div>
 

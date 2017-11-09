@@ -25,6 +25,7 @@ module.exports = function(app) {
   app.put('/api/page/:pid/widget/:wgid',updateWidget);
   app.delete('/api/page/:pid/widget/:wgid',deleteWidget);
   app.post ('/api/upload', upload.single('myFile'), uploadImage);
+  app.put('/api/page/:pid/widget',reorderWidgets);
 
   var WidgetModel = require('../model/widget/widget.model.server')
 
@@ -65,7 +66,18 @@ module.exports = function(app) {
 
     res.redirect("http://localhost:4200/profile/"+ userId + "/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
+  function reorderWidgets(req,res) {
+    var pageId = req.params['pid'];
+    var startIndex = parseInt(req.query.start);
+    var endIndex = parseInt(req.query.end);
+    WidgetModel
+      .reorderWidgets(pageId, startIndex, endIndex)
+      .then(function (stats) {
+        res.send(stats);
 
+      });
+
+  }
 
 
   function deleteWidget(reg, res){
