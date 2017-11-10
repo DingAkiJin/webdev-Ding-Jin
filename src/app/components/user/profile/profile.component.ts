@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
 import {User} from '../../../models/user.model.client';
-import {extractStyleParams} from "@angular/animations/browser/src/util";
+import {extractStyleParams} from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'app-profile',
