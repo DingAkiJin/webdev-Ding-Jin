@@ -149,7 +149,11 @@ module.exports = function(app) {
     WidgetModel.findAllWidgetsForPage(pid)
       .then(function (widgets) {
         res.json(widgets);
-      })
+      },
+      function(err){
+        res.sendStatus(404).send(err);
+
+      });
     // res.json(getWidgetsForPageId(pid));
   }
   function getWidgetsForPageId(pid) {

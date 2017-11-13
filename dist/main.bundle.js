@@ -2145,6 +2145,7 @@ var WidgetListComponent = (function () {
             _this._widgetService
                 .findAllWidgetsForPage(_this.userId, _this.wId, _this.pId).subscribe(function (widgets) {
                 _this.widgets = widgets;
+                console.log(_this.widgets);
             });
         });
         // this.widgets = this._widgetService.findWidgetByPageId(this.pId);

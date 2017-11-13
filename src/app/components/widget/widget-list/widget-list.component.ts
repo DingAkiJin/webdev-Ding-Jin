@@ -29,6 +29,7 @@ export class WidgetListComponent implements OnInit {
             .findAllWidgetsForPage(this.userId, this.wId, this.pId).subscribe(
             (widgets) => {
               this.widgets = widgets;
+              console.log(this.widgets);
             });
 
         });
