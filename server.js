@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Point static path to dist -- For building -- REMOVE
-//  app.use(express.static(path.join(__dirname, 'dist')));
+  app.use(express.static(path.join(__dirname, 'dist')));
 //
 
 
@@ -64,9 +64,9 @@ serverside(app);
 var serverSideMongo = require("./server/test-mongodb/app");
 serverSideMongo(app);
 
-// app.use('*', function (req, res) {
-//   res.sendFile(path.join(__dirname, './dist/index.html'));
-// });
+app.use('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './dist/index.html'));
+});
 
 
 // For Build: Catch all other routes and return the index file -- BUILDING
