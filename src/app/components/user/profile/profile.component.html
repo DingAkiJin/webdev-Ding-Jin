@@ -12,9 +12,8 @@
     <!--tick mark-->
 
     <p class="navbar-text pull-right">
-      <a [routerLink]="[ '/profile', userId]"
-        (click)="updateUser(username,password,firstname,lastname)" class="navbar-link">
-        <span required=""  class="glyphicon glyphicon-ok"></span>
+      <a (click)="updateUser(username,password,firstname,lastname)" class="navbar-link">
+        <span class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
 
@@ -73,7 +72,8 @@
              name="lastname">
     </div>
   </form>
-  <a [routerLink]="[ '/profile', 'website']" class="btn btn-primary btn-block">
+  <a class="btn btn-primary btn-block"
+     [routerLink]="[ '/profile', 'website']" >
     Websites
   </a>
   <a (click) = "logout()" class="btn btn-danger btn-block">
@@ -86,7 +86,7 @@
 <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId]" class="navbar-link">
+      <a [routerLink]="['/profile']" class="navbar-link">
         <span class="glyphicon glyphicon-user"  ></span>
       </a>
     </p>

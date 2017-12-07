@@ -12,7 +12,7 @@ import {SharedService} from '../../../services/shared.service';
 })
 export class ProfileComponent implements OnInit {
   userId: String;
-  user: {};
+  user: any;
   firstname: String;
   username: String;
   lastname: String;
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
 
   updateUser(username: String, password: String, firstname: String, lastname: String) {
     const updateUser = {
-      _id: this.user['_id'],
+      _id: this.userId,
       username: username ,
       password: password,
       firstName: firstname,
@@ -56,12 +56,13 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = this.sharedService.user.username;
-    this.password = this.sharedService.user.password;
-    this.firstname = this.sharedService.user.firstName;
-    this.lastname = this.sharedService.user.lastName;
-    console.log(this.sharedService.user);
-    // this.getUser();
+    this.user = this.sharedService.user;
+    this.getUser();
+    this.userService.findUserById(this.userId).subscribe((user: User) => {
+      this.user = user;
+    });
+    // alert('userId: ' + this.userId);
+  }
     // this.activatedRoute.params.subscribe(params => {
     //   this.userId = params['uid'];
     //   return this.userService.findUserById(this.userId)
@@ -73,5 +74,4 @@ export class ProfileComponent implements OnInit {
     //       this.lastname = user.lastName;
     //     });
     // });
-  }
 }
