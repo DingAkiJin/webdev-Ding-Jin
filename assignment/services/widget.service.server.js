@@ -64,7 +64,7 @@ module.exports = function(app) {
           res.sendStatus(404).send(err);
         });
 
-    res.redirect("https://webdev-ding-jin.herokuapp.com/user/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    res.redirect("https://webdev-ding-jin.herokuapp.com/profile/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
   function reorderWidgets(req,res) {
     var pageId = req.params['pid'];
