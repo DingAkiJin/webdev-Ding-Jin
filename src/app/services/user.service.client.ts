@@ -40,6 +40,7 @@ export class UserService {
         return true;
       }else {
         this.router.navigate(['/login']);
+        alert('Please login first');
         return false;
       }
       });

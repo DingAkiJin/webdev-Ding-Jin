@@ -28,7 +28,7 @@ const APP_ROUTES: Routes = [
   {path: 'test', component: TestComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationService]},
-  {path: 'register', component: RegisterComponent, canActivate: [AuthenticationService]},
+  {path: 'register', component: RegisterComponent},
   {path: 'profile/website', component: WebsiteListComponent, canActivate: [AuthenticationService]},
   {path: 'profile/website/new', component: WebsiteNewComponent, canActivate: [AuthenticationService]},
   {path: 'profile/website/:wid', component: WebsiteEditComponent, canActivate: [AuthenticationService] },
