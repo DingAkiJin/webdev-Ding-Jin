@@ -15,8 +15,6 @@ export class UserService {
   options: RequestOptions = new RequestOptions();
   baseUrl = environment.baseUrl;
 
-
-  api = {'findUserByCredentials': this.findUserByCredentials};
   register(username, password) {
     const url = this.baseUrl + '/api/register' ;
     const credentials = {

@@ -2920,7 +2920,6 @@ var UserService = (function () {
         this.router = router;
         this.options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]();
         this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
-        this.api = { 'findUserByCredentials': this.findUserByCredentials };
     }
     UserService.prototype.register = function (username, password) {
         var url = this.baseUrl + '/api/register';
