@@ -25,6 +25,15 @@ export class WidgetListComponent implements OnInit {
     this.user = this.sharedService.user;
     this.userId = this.user['_id'];
   }
+  updateImageUrl(string) {
+    let newurl = '';
+    if(string.substring(1,4) ==  'ass'){
+      newurl = this.baseUrl + string;
+    }else {
+      newurl = string;
+    }
+    return newurl;
+  }
   ngOnInit() {
     this.getUser();
     this.activatedRoute.params

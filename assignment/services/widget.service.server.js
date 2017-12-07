@@ -53,7 +53,7 @@ module.exports = function(app) {
     var mimetype      = myFile.mimetype;
 
 
-    var widget = { url: "assets/uploads/"+filename};
+    var widget = { url: "/assets/uploads/"+filename};
     WidgetModel
       .updateWidget(widgetId, widget)
       .then(function (stats) {
@@ -64,7 +64,7 @@ module.exports = function(app) {
           res.sendStatus(404).send(err);
         });
 
-    res.redirect("http://localhost:4200/profile/"+ userId + "/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    res.redirect("https://webdev-ding-jin.herokuapp.com/user/website/"+ websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
   function reorderWidgets(req,res) {
     var pageId = req.params['pid'];
