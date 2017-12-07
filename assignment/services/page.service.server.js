@@ -1,4 +1,4 @@
-module.exports = function(app) {
+  module.exports = function(app) {
   var pages = [
     {'_id': '321', 'name': 'Post 1', 'websiteId': '456', 'description': 'Lorem'},
     {'_id': '432', 'name': 'Post 2', 'websiteId': '456', 'description': 'Lorem'},
@@ -48,15 +48,15 @@ module.exports = function(app) {
     //   }
     // }
   }
-  function findAllPagesForWebsite(reg, res) {
-    var wid = reg.params['wid'];
-    // res.json(getPagesForWebsiteId(wid));
-    PageModel
-      .findAllPagesForWebsite(wid)
-      .then(function(pages){
-        res.json(pages);
-      })
-  }
+    function findAllPagesForWebsite(reg, res) {
+      var wid = reg.params['wid'];
+      // res.json(getPagesForWebsiteId(wid));
+      PageModel
+        .findAllPagesForWebsite(wid)
+        .then(function(pages){
+          res.json(pages);
+        })
+    }
   function findPageById(reg,res){
     var pid = reg.params['pid'];
    // res.json(getPageById(pid));

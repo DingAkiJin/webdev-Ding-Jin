@@ -34,12 +34,20 @@ import { WidgetTextComponent } from './components/widget/widget-edit/widget-text
 import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 import {FlickrService} from './services/flickr.service.client';
 import {SharedService} from './services/shared.service';
+import { OmdbtestComponent } from './omdb-test/omdbtest/omdbtest.component';
+import {OmdbServiceClient} from './services/omdb.service.client';
+import {AuthenticationService} from './services/authentication.service.client';
+import {OrderByPipe} from './components/widget/widget-list/order-by-pipe.pipe';
+import {SortableDirective} from './components/widget/widget-list/sortable.directive';
+import {SafePipe} from './components/widget/widget-list/safe-pipe.pipe';
+import {WebdevSortableDirective} from './components/widget/widget-list/webdev-sortable.directive';
 
 
 
 @NgModule({
   // Declare components here
   declarations: [
+    WebdevSortableDirective,
     AppComponent,
     HomeComponent,
     TestComponent,
@@ -61,6 +69,10 @@ import {SharedService} from './services/shared.service';
     WidgetHtmlComponent,
     WidgetTextComponent,
     FlickrImageSearchComponent,
+    OmdbtestComponent,
+    SafePipe,
+    SortableDirective,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +82,15 @@ import {SharedService} from './services/shared.service';
     Routing
   ],
   // Client Side services here
-  providers: [ UserService, WebsiteService, PageService, WidgetService, FlickrService , SharedService],
+  providers: [
+     UserService,
+     WebsiteService,
+    PageService,
+    WidgetService,
+    FlickrService ,
+    SharedService,
+    OmdbServiceClient,
+    AuthenticationService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

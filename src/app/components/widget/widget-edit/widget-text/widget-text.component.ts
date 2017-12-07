@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {SharedService} from "../../../../services/shared.service";
 
 @Component({
   selector: 'app-widget-text',
@@ -20,8 +21,14 @@ export class WidgetTextComponent implements OnInit {
   placeholder: String;
   widgets: {};
   formatted: Boolean;
-  constructor(private widgetService: WidgetService,
+  user: {};
+  constructor(private sharedService: SharedService,
+    private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
 
   deleteWidget(pid: String, wgid: String) {
     this.widgetService.deleteWidget(pid, wgid)
@@ -49,10 +56,11 @@ export class WidgetTextComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUser();
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
-          this.userId = params['uid'];
+          // this.userId = params['uid'];
           this.pId = params['pid'];
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];

@@ -4,6 +4,7 @@ import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
 import {User} from '../../../models/user.model.client';
 import 'rxjs/Rx';
+import {SharedService} from '../../../services/shared.service';
 
 
 
@@ -21,26 +22,32 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean
   errorMsg = 'Invalid username or password !';
 
-  constructor( private userservice: UserService, private router: Router) {
+  constructor(private sharedService: SharedService, private userservice: UserService, private router: Router) {
 
   }
 
   ngOnInit() {}
 
   login(username: String, password: String) {
-    this.userservice.findUserByCredentials(username, password)
-      .subscribe((user: User) => {
-      if (user) {
-        this.router.navigate(['/profile', user._id]);
-      }
-    });
+    this.userservice
+      .login(this.username, this.password)
+      .subscribe((user) => {
+      this.sharedService.user = user;
+      this.router.navigate(['/profile']);
+      });
+    // this.userservice.findUserByCredentials(username, password)
+    //   .subscribe((user: User) => {
+    //   if (user) {
+    //     this.router.navigate(['/profile', user._id]);
+    //   }
+    // });
   }
   register(username: String, password: String) {
     const user = new User('', username , password , '' , '');
     this.userservice.createUser(user)
       .subscribe((user1: User) => {
       if (user1) {
-        this.router.navigate(['/register', user1._id]);
+        this.router.navigate(['/register']);
       }
         });
   }

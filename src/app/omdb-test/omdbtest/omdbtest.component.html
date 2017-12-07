@@ -1,0 +1,14 @@
+<h1> News API Test</h1>
+
+<label>News Title</label>
+<input [(ngModel)]="title" class = "form-control"/>
+<button (click) = "searchMovie(title)"
+        class = "btn btn-primary btn-block">
+  Search
+</button>
+
+<ul class = "list-group">
+  <li class = "list-group-item" *ngFor = "let news of result.articles">
+    {{news.title}}
+  </li>
+</ul>

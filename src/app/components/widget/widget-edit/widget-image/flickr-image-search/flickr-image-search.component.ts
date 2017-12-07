@@ -17,12 +17,16 @@ export class FlickrImageSearchComponent implements OnInit {
   photos: [any];
   error: string;
   searchText: string;
+  user: {};
 
   constructor(private flickrService: FlickrService, private widgetService: WidgetService, private router: Router,
               private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
-
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
   ngOnInit() {
-    this.userId = this.sharedService.user['_id'];
+    this.getUser();
 
     // fetch userId, pageId and websiteId from url
     this.activatedRoute.params
@@ -72,7 +76,7 @@ export class FlickrImageSearchComponent implements OnInit {
         (data: any) => {
           const result = data;
           if (result) { this.router.navigate(
-            ['/profile/' + this.userId + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget/' + this.widgetId] );
+            ['/profile/' + '/website/' + this.websiteId + '/page/' + this.pageId + '/widget/' + this.widgetId] );
           } else {
             this.error = 'failed!';
           }

@@ -19,25 +19,26 @@ import {WidgetListComponent} from './components/widget/widget-list/widget-list.c
 import {WidgetYoutubeComponent} from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 import {WidgetEditComponent} from './components/widget/widget-edit/widget-edit.component';
 import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {OmdbtestComponent} from './omdb-test/omdbtest/omdbtest.component';
+import {AuthenticationService} from './services/authentication.service.client';
 
 const APP_ROUTES: Routes = [
+  {path: 'omdb', component: OmdbtestComponent},
   {path: '', component : HomeComponent},
   {path: 'test', component: TestComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'register/:uid', component: RegisterComponent},
-  {path: 'profile/:uid', component: ProfileComponent },
-  {path: 'profile/:uid/website', component: WebsiteListComponent},
-  {path: 'profile/:uid/website/new', component: WebsiteNewComponent},
-  {path: 'profile/:uid/website/:wid', component: WebsiteEditComponent },
-  {path: 'profile/:uid/website/:wid/page', component: PageListComponent},
-  {path: 'profile/:uid/website/:wid/page/new', component: PageNewComponent},
-  {path: 'profile/:uid/website/:wid/page/:pid', component: PageEditComponent},
-  {path: 'profile/:uid/website/:wid/page/:pid/widget', component: WidgetListComponent},
-  {path: 'profile/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent},
-  {path: 'profile/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent},
-  {path: 'profile/:uid/website/:wid/page/:pid/widget/:wgid/flickr', component: FlickrImageSearchComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationService]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website', component: WebsiteListComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/new', component: WebsiteNewComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid', component: WebsiteEditComponent, canActivate: [AuthenticationService] },
+  {path: 'profile/website/:wid/page', component: PageListComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/new', component: PageNewComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/:pid', component: PageEditComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/:pid/widget', component: WidgetListComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent, canActivate: [AuthenticationService]},
+  {path: 'profile/website/:wid/page/:pid/widget/:wgid/flickr', component: FlickrImageSearchComponent, canActivate: [AuthenticationService]},
 ];
 
 // Export the routes as module providers

@@ -3,6 +3,7 @@ import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../../../../environments/environment';
+import {SharedService} from '../../../../services/shared.service';
 
 @Component({
   selector: 'app-widget-image',
@@ -22,9 +23,16 @@ export class WidgetImageComponent implements OnInit {
   text: String;
   widgets: Widget[];
   baseUrl: string;
+  user: {};
 
-  constructor(private widgetService: WidgetService,
+  constructor(private sharedService: SharedService,
+    private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
+
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
   updateWidget(text: String, url: String, width: String) {
     // const newWidget = new Widget(this.widgetId, 'IMAGE', this.pId , 0 , '', this.width, this.url);
     const newWidget = {
@@ -50,11 +58,12 @@ export class WidgetImageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUser();
     this.baseUrl = environment.baseUrl;
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
-          this.userId = params['uid'];
+          // this.userId = params['uid'];
           this.pId = params['pid'];
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];

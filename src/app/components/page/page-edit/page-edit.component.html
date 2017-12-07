@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/profile',userId,'website',wid,'page']" class="navbar-link">
+      <a [routerLink]="['/profile','website',wid,'page']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -21,7 +21,7 @@
     <!--check mark-->
     <p class="navbar-text pull-right">
       <a (click) = "updatePages(name, title)"
-         [routerLink]="['/profile', userId,'website',wid,'page']" class="navbar-link">
+         [routerLink]="['/profile', 'website',wid,'page']" class="navbar-link">
         <span class="glyphicon glyphicon-ok"></span>
       </a>
     </p>
@@ -31,7 +31,7 @@
 <nav class="nav navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId]">
+      <a [routerLink]="['/profile']">
         <span class="glyphicon glyphicon-user"></span>
       </a>
     </p>
@@ -52,7 +52,7 @@
          placeholder="Page Title"
          name = "title"
          />
-  <a [routerLink]="['/profile',userId,'website',wid,'page']" class="button">
+  <a [routerLink]="['/profile','website',wid,'page']" class="button">
     <button (click)="deletePage(wid,pid)"
       class="btn btn-danger btn-block top-custom">
       Delete

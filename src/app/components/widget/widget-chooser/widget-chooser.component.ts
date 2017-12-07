@@ -3,6 +3,7 @@ import {Widget} from '../../../models/widget.model.client';
 import {WidgetService} from '../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-widget-chooser',
@@ -18,16 +19,23 @@ export class WidgetChooserComponent implements OnInit {
   widgetImage: Widget;
   widgetYoutube: Widget;
   widgets: Widget[];
-  constructor(private widgetService: WidgetService,
+  user: {};
+  constructor(private sharedService: SharedService,
+              private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute,
               private router: Router) { }
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
 
   ngOnInit() {
+    this.getUser();
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.pId = params['pid'];
-          this.userId = params['uid'];
+          // this.userId = params['uid'];
           this.websiteId = params['wid'];
         }
       );
@@ -42,7 +50,7 @@ export class WidgetChooserComponent implements OnInit {
     this.widgetService.createWidget(this.pId , newWidget)
       .subscribe((widget0: Widget) => {
         if (widget0) {
-          this.router.navigate(['/profile', this.userId , 'website', this.websiteId, 'page' , this.pId , 'widget', widget0._id]);
+          this.router.navigate(['/profile',  'website', this.websiteId, 'page' , this.pId , 'widget', widget0._id]);
         }
       });
 

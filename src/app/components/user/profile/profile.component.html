@@ -73,10 +73,10 @@
              name="lastname">
     </div>
   </form>
-  <a [routerLink]="[ '/profile', userId, 'website']" class="btn btn-primary btn-block">
+  <a [routerLink]="[ '/profile', 'website']" class="btn btn-primary btn-block">
     Websites
   </a>
-  <a [routerLink]="['/login']" class="btn btn-danger btn-block">
+  <a (click) = "logout()" class="btn btn-danger btn-block">
     Logout
   </a>
 </div>

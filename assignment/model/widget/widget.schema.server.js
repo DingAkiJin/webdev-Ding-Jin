@@ -14,7 +14,7 @@ var widgetSchema = mongoose.Schema({
   rows: Number,
   class: String,
   icon: String,
-
+  position: Number,
   deletable: Boolean,
   formatted: Boolean
 },{collection: 'widget'});

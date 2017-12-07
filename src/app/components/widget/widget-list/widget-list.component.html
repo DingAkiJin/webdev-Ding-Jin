@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left ">
-      <a [routerLink]="['/profile',userId,'website',wId,'page']" class="navbar-link">
+      <a [routerLink]="['/profile','website',wId,'page']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -20,7 +20,7 @@
 
     <!--plus mark-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget','new']" class="navbar-link">
+      <a [routerLink]="['/profile','website',wId,'page',pId,'widget','new']" class="navbar-link">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </p>
@@ -30,19 +30,19 @@
 <nav class="nav navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId]">
+      <a [routerLink]="['/profile']">
         <span class="glyphicon glyphicon-user"></span>
       </a>
     </p>
     <!--play mark-->
     <p class="navbar-text pull-left">
-      <a [routerLink]="['/profile',userId,'website','new']" class="navbar-link">
+      <a [routerLink]="['/profile','website','new']" class="navbar-link">
         <span class="glyphicon glyphicon-play"></span>
       </a>
     </p>
     <!--eye open mark-->
     <p class="navbar-text left-to-object">
-      <a [routerLink]="['/profile',userId,'website','new']" class="navbar-link">
+      <a [routerLink]="['/profile','website','new']" class="navbar-link">
         <span class="glyphicon glyphicon-eye-open"></span>
       </a>
     </p>
@@ -50,10 +50,10 @@
 </nav>
 
 
-<div class="container-fluid top-custom ">
-  <ul class="list-group">
+<div class="container-fluid top-custom "  >
+  <ul class="list-group" appSortable (newIndexes)="reorderWidgets($event)">
 
-    <li *ngFor="let widget of widgets"
+    <li *ngFor="let widget of widgets "
         class="list-group-item">
 
       <div [ngSwitch]="widget.widgetType">
@@ -63,7 +63,7 @@
             <div class="webdev-widget">
               <div class="webdev-widget-toolbar">
                 <p class="glyphicon">
-                  <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                  <a [routerLink]="['/profile','website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
                     <span class="glyphicon glyphicon-cog"></span>
                   </a>
                   <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -76,17 +76,18 @@
         </div>
         <h1>{{widget.text}}</h1>
 
+
         <div *ngSwitchCase="'IMAGE'">
           <div class="webdev-widget">
             <div class="webdev-widget-toolbar">
               <p class="glyphicon">
-                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                <a [routerLink]="['/profile','website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
                   <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
               </p>
             </div>
-            <img  [style.width] = "widget.width" src="http://localhost:3100/{{widget.url}}">
+            <img  [style.width] = "widget.width" [src] ="widget.url">
           </div>
         </div>
 
@@ -95,7 +96,7 @@
           <div class="webdev-widget">
             <div class="webdev-widget-toolbar" >
               <p class="glyphicon">
-                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                <a [routerLink]="['/profile','website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
                   <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -112,7 +113,7 @@
           <div class="webdev-widget">
             <div class="webdev-widget-toolbar">
               <p class="glyphicon">
-                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                <a [routerLink]="['/profile','website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
                   <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -126,7 +127,7 @@
           <div class="webdev-widget">
             <div class="webdev-widget-toolbar">
               <p class="glyphicon">
-                <a [routerLink]="['/profile',userId,'website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
+                <a [routerLink]="['/profile','website',wId,'page',pId,'widget',widget._id]" class="navbar-link">
                   <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-menu-hamburger"></span>

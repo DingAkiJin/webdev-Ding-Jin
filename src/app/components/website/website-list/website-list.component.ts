@@ -3,6 +3,7 @@ import {WebsiteService} from '../../../services/website.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Website} from '../../../models/website.model.client';
 import {NgForm} from '@angular/forms';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-website-list',
@@ -10,12 +11,18 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./website-list.component.css']
 })
 export class WebsiteListComponent implements OnInit {
-  websites: Website[];
+  websites: {};
   websiteName: String;
   uid: String;
   website: Website;
+  user: {};
 
-  constructor(private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) {
+  constructor(private sharedService: SharedService, private _websiteService: WebsiteService, private activatedRoute: ActivatedRoute) {
+  }
+
+  getUser() {
+    this.user = this.sharedService.user;
+    this.uid = this.user['_id'];
   }
   updateWebsits(websiteName: String) {
     const newWebsite = new Website(this.website._id, websiteName, this.website.developerId , '');
@@ -40,16 +47,13 @@ export class WebsiteListComponent implements OnInit {
         });
   }
   ngOnInit() {
-    this.activatedRoute.params.subscribe(
-      (params) => {
-        this.uid = params['uid'];
-        this._websiteService
-          .findWebsitesByUser(this.uid).subscribe(
-          (websites) => {
-            this.websites = websites;
-          });
-      });
-  }
-
+     this.getUser();
+    this._websiteService.findWebsitesByUser(this.uid)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.websites = data; },
+        (error) => console.log(error)
+      ); }
 
 }

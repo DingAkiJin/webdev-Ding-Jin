@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Page} from '../../../models/page.model.client';
 import {PageService} from '../../../services/page.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-page-edit',
@@ -17,9 +18,15 @@ export class PageEditComponent implements OnInit {
   description: String;
   title: String;
   pages: Page[];
-  constructor(private pageService: PageService,
+  user: {};
+  constructor(private sharedService: SharedService,
+              private pageService: PageService,
               private activatedRoute: ActivatedRoute) { }
 
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
   deletePage(wid: String, pid: String) {
     this.pageService.deletePage(wid, pid)
       .subscribe(
@@ -42,11 +49,12 @@ export class PageEditComponent implements OnInit {
       });
   }
   ngOnInit() {
+    this.getUser();
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
           this.pid = params['pid'];
-          this.userId = params['uid'];
+         //  this.userId = params['uid'];
           this.wid = params['wid'];
           this.pageService
            .findPageById(this.wid, this.pid).subscribe(

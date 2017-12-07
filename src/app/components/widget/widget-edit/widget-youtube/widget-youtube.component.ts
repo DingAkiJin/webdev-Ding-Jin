@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Widget} from '../../../../models/widget.model.client';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {SharedService} from "../../../../services/shared.service";
 
 
 @Component({
@@ -21,8 +22,14 @@ export class WidgetYoutubeComponent implements OnInit {
   url: String;
   text: String;
   widgets: Widget[];
-  constructor(private widgetService: WidgetService,
+  user: {};
+  constructor(private sharedService: SharedService,
+    private widgetService: WidgetService,
               private activatedRoute: ActivatedRoute) { }
+  getUser() {
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
   updateWidget(text: String, url: String, width: String) {
     // const newWidget = new Widget(this.widgetId, 'YOUTUBE', this.pId , 0 , '', this.width, this.url);
     const newWidget = {
@@ -48,10 +55,11 @@ export class WidgetYoutubeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUser();
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
-          this.userId = params['uid'];
+          // this.userId = params['uid'];
           this.pId = params['pid'];
           this.websiteId = params['wid'];
           this.widgetId = params['wgid'];

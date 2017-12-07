@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!--Left arrow-->
     <p class="navbar-text pull-left">
-      <a [routerLink]="['/profile', userId,'website',websiteId,'page', pageId,'widget']" class="navbar-link">
+      <a [routerLink]="['/profile', 'website',websiteId,'page', pageId,'widget']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -51,7 +51,7 @@
     <!--Play Symbol-->
     <!--User Symbol-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile',userId]">
+      <a [routerLink]="['/profile']">
         <span class="glyphicon glyphicon-user"></span>
       </a>
     </p>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {WebsiteService} from '../../../services/website.service.client';
 import {Website} from '../../../models/website.model.client';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-website-edit',
@@ -16,8 +17,15 @@ export class WebsiteEditComponent implements OnInit {
   description: String;
   websites: Website[];
   uid: String;
-  constructor(private websiteService: WebsiteService,
+  user: {};
+  constructor(private sharedService: SharedService,
+              private websiteService: WebsiteService,
               private activatedRoute: ActivatedRoute) { }
+
+  getUser() {
+    this.user = this.sharedService.user;
+    this.uid = this.user['_id'];
+  }
   updateWebsits(websiteName: String, description: String) {
     const newWebsite = {
       _id: this.website._id,
@@ -32,11 +40,12 @@ export class WebsiteEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUser();
     this.activatedRoute.params
       .subscribe(
         (params: any ) => {
           this.wid = params['wid'];
-          this.uid = params['uid'];
+          // this.uid = params['uid'];
           this.websiteService
             .findWebsiteById(this.uid, this.wid).subscribe(
             (website) => {

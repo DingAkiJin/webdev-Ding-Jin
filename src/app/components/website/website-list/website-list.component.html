@@ -3,7 +3,7 @@
 
     <!--arrow mark-->
     <p class="navbar-text pull-left">
-      <a [routerLink]="['/profile', uid]" class="navbar-link">
+      <a [routerLink]="['/profile']" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
     </p>
@@ -20,7 +20,7 @@
 
     <!--plus mark-->
     <p class="navbar-text pull-right">
-      <a [routerLink]="['/profile', uid, 'website','new']" class="navbar-link">
+      <a [routerLink]="['/profile', 'website','new']" class="navbar-link">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </p>
@@ -28,7 +28,7 @@
     <nav class="nav navbar navbar-inverse navbar-fixed-bottom">
       <div class="container-fluid">
         <p class="navbar-text pull-right">
-          <a [routerLink]="['/profile', uid]"class="navbar-link">
+          <a [routerLink]="['/profile']"class="navbar-link">
             <span class="glyphicon glyphicon-user"></span>
           </a>
         </p>
@@ -44,14 +44,14 @@
   <ul class="list-group">
     <li  *ngFor = "let website of websites"
          class="list-group-item">
-      <a [routerLink]="['/profile',uid, 'website', website._id, 'page']">
+      <a [routerLink]="['/profile', 'website', website._id, 'page']">
       {{website.name}}
       </a>
       <a (click)="deleteWebsite(website._id)" class="pull-right">
         <span class = "glyphicon glyphicon-remove"></span>
       </a>
       <a
-         [routerLink]="['/profile', uid, 'website', website._id]">
+         [routerLink]="['/profile', 'website', website._id]">
         <span class="glyphicon glyphicon-cog pull-right"></span>
       </a>
     </li>
