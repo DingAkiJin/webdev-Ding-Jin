@@ -234,24 +234,22 @@ AppModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Routing; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_home_home_home_component__ = __webpack_require__("../../../../../src/app/components/home/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_test_test_test_component__ = __webpack_require__("../../../../../src/app/components/test/test/test.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_user_login_login_component__ = __webpack_require__("../../../../../src/app/components/user/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_user_profile_profile_component__ = __webpack_require__("../../../../../src/app/components/user/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_user_register_register_component__ = __webpack_require__("../../../../../src/app/components/user/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_page_page_edit_page_edit_component__ = __webpack_require__("../../../../../src/app/components/page/page-edit/page-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_page_page_list_page_list_component__ = __webpack_require__("../../../../../src/app/components/page/page-list/page-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_page_page_new_page_new_component__ = __webpack_require__("../../../../../src/app/components/page/page-new/page-new.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_website_website_new_website_new_component__ = __webpack_require__("../../../../../src/app/components/website/website-new/website-new.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_website_website_edit_website_edit_component__ = __webpack_require__("../../../../../src/app/components/website/website-edit/website-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_website_website_list_website_list_component__ = __webpack_require__("../../../../../src/app/components/website/website-list/website-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_widget_widget_chooser_widget_chooser_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-chooser/widget-chooser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_widget_widget_list_widget_list_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-list/widget-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_widget_widget_edit_widget_edit_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-edit/widget-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__omdb_test_omdbtest_omdbtest_component__ = __webpack_require__("../../../../../src/app/omdb-test/omdbtest/omdbtest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__ = __webpack_require__("../../../../../src/app/services/authentication.service.client.ts");
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_test_test_test_component__ = __webpack_require__("../../../../../src/app/components/test/test/test.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_user_login_login_component__ = __webpack_require__("../../../../../src/app/components/user/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_user_profile_profile_component__ = __webpack_require__("../../../../../src/app/components/user/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_user_register_register_component__ = __webpack_require__("../../../../../src/app/components/user/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_page_page_edit_page_edit_component__ = __webpack_require__("../../../../../src/app/components/page/page-edit/page-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_page_page_list_page_list_component__ = __webpack_require__("../../../../../src/app/components/page/page-list/page-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_page_page_new_page_new_component__ = __webpack_require__("../../../../../src/app/components/page/page-new/page-new.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_website_website_new_website_new_component__ = __webpack_require__("../../../../../src/app/components/website/website-new/website-new.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_website_website_edit_website_edit_component__ = __webpack_require__("../../../../../src/app/components/website/website-edit/website-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_website_website_list_website_list_component__ = __webpack_require__("../../../../../src/app/components/website/website-list/website-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_widget_widget_chooser_widget_chooser_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-chooser/widget-chooser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_widget_widget_list_widget_list_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-list/widget-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_widget_widget_edit_widget_edit_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-edit/widget-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__ = __webpack_require__("../../../../../src/app/components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__omdb_test_omdbtest_omdbtest_component__ = __webpack_require__("../../../../../src/app/omdb-test/omdbtest/omdbtest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__ = __webpack_require__("../../../../../src/app/services/authentication.service.client.ts");
 
 
 
@@ -270,22 +268,22 @@ AppModule = __decorate([
 
 
 var APP_ROUTES = [
-    { path: 'omdb', component: __WEBPACK_IMPORTED_MODULE_16__omdb_test_omdbtest_omdbtest_component__["a" /* OmdbtestComponent */] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__components_home_home_home_component__["a" /* HomeComponent */] },
-    { path: 'test', component: __WEBPACK_IMPORTED_MODULE_2__components_test_test_test_component__["a" /* TestComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__components_user_login_login_component__["a" /* LoginComponent */] },
-    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_5__components_user_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__components_user_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website', component: __WEBPACK_IMPORTED_MODULE_11__components_website_website_list_website_list_component__["a" /* WebsiteListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/new', component: __WEBPACK_IMPORTED_MODULE_9__components_website_website_new_website_new_component__["a" /* WebsiteNewComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid', component: __WEBPACK_IMPORTED_MODULE_10__components_website_website_edit_website_edit_component__["a" /* WebsiteEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page', component: __WEBPACK_IMPORTED_MODULE_7__components_page_page_list_page_list_component__["a" /* PageListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/new', component: __WEBPACK_IMPORTED_MODULE_8__components_page_page_new_page_new_component__["a" /* PageNewComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/:pid', component: __WEBPACK_IMPORTED_MODULE_6__components_page_page_edit_page_edit_component__["a" /* PageEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/:pid/widget', component: __WEBPACK_IMPORTED_MODULE_13__components_widget_widget_list_widget_list_component__["a" /* WidgetListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/:pid/widget/new', component: __WEBPACK_IMPORTED_MODULE_12__components_widget_widget_chooser_widget_chooser_component__["a" /* WidgetChooserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/:pid/widget/:wgid', component: __WEBPACK_IMPORTED_MODULE_14__components_widget_widget_edit_widget_edit_component__["a" /* WidgetEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
-    { path: 'profile/website/:wid/page/:pid/widget/:wgid/flickr', component: __WEBPACK_IMPORTED_MODULE_15__components_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__["a" /* FlickrImageSearchComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_17__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'omdb', component: __WEBPACK_IMPORTED_MODULE_15__omdb_test_omdbtest_omdbtest_component__["a" /* OmdbtestComponent */] },
+    // {path: '', component : HomeComponent},
+    { path: 'test', component: __WEBPACK_IMPORTED_MODULE_1__components_test_test_test_component__["a" /* TestComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__components_user_login_login_component__["a" /* LoginComponent */] },
+    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_4__components_user_register_register_component__["a" /* RegisterComponent */] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_3__components_user_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website', component: __WEBPACK_IMPORTED_MODULE_10__components_website_website_list_website_list_component__["a" /* WebsiteListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/new', component: __WEBPACK_IMPORTED_MODULE_8__components_website_website_new_website_new_component__["a" /* WebsiteNewComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid', component: __WEBPACK_IMPORTED_MODULE_9__components_website_website_edit_website_edit_component__["a" /* WebsiteEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page', component: __WEBPACK_IMPORTED_MODULE_6__components_page_page_list_page_list_component__["a" /* PageListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/new', component: __WEBPACK_IMPORTED_MODULE_7__components_page_page_new_page_new_component__["a" /* PageNewComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/:pid', component: __WEBPACK_IMPORTED_MODULE_5__components_page_page_edit_page_edit_component__["a" /* PageEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/:pid/widget', component: __WEBPACK_IMPORTED_MODULE_12__components_widget_widget_list_widget_list_component__["a" /* WidgetListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/:pid/widget/new', component: __WEBPACK_IMPORTED_MODULE_11__components_widget_widget_chooser_widget_chooser_component__["a" /* WidgetChooserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/:pid/widget/:wgid', component: __WEBPACK_IMPORTED_MODULE_13__components_widget_widget_edit_widget_edit_component__["a" /* WidgetEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
+    { path: 'profile/website/:wid/page/:pid/widget/:wgid/flickr', component: __WEBPACK_IMPORTED_MODULE_14__components_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__["a" /* FlickrImageSearchComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service_client__["a" /* AuthenticationService */]] },
 ];
 // Export the routes as module providers
 var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(APP_ROUTES);
@@ -314,7 +312,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  home works!\r\n</p>\r\n"
+module.exports = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<!DOCTYPE html>\r\n<html>\r\n<title>W3.CSS Template</title>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\r\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Raleway\">\r\n<style>\r\n  body,h1,h2,h3,h4,h5 {font-family: \"Raleway\", sans-serif}\r\n</style>\r\n<body class=\"w3-light-grey\">\r\n\r\n<!-- w3-content defines a container for fixed size centered content,\r\nand is wrapped around the whole page content, except for the footer in this example -->\r\n<div class=\"w3-content\" style=\"max-width:1400px\">\r\n\r\n  <!-- Header -->\r\n  <header class=\"w3-container w3-center w3-padding-32\">\r\n    <h1><b>Welcome to Ding's WebSite</b></h1>\r\n\r\n  </header>\r\n\r\n  <!-- Grid -->\r\n  <div class=\"w3-row\">\r\n\r\n    <!-- Blog entries -->\r\n\r\n      <!-- Blog entry -->\r\n      <div class=\"w3-card-4 w3-margin w3-white\">\r\n        <img src=\"http://all4desktop.com/data_images/wallpapers/nature-and-landscape/055005.jpg\" alt=\"Nature\" style=\"width:20%\">\r\n        <div class=\"w3-container\">\r\n          <h3><b>A Little About Myself</b></h3>\r\n\r\n        </div>\r\n\r\n        <div class=\"w3-container\">\r\n          <p>I'm a student majoring in Computer Science at Northeastern University.\r\n            I have a heart of love of Web Development. Hope to be better at it in the future. </p>\r\n\r\n        </div>\r\n      </div>\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n      <!-- END BLOG ENTRIES -->\r\n\r\n\r\n\r\n\r\n<!-- Footer -->\r\n<footer class=\"w3-container w3-dark-grey w3-padding-32 w3-margin-top\">\r\n  <a href=\"https://webdev-ding-jin.herokuapp.com/login\">\r\n  <button class=\"w3-button w3-black  w3-padding-large w3-margin-bottom\">Assignment</button>\r\n  </a>\r\n  <a href=\"https://webdev-news-app.herokuapp.com\">\r\n  <button class=\"w3-button w3-black w3-padding-large w3-margin-bottom\">Project</button>\r\n  </a>\r\n</footer>\r\n  </div>\r\n\r\n\r\n</body>\r\n</html>\r\n"
 
 /***/ }),
 
@@ -728,7 +726,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\r\n\r\n\r\n  <h1>Login</h1>\r\n\r\n\r\n\r\n    <input    [(ngModel)] = \"username\"\r\n              placeholder=\"username\"\r\n              name = \"username\"\r\n              type=\"text\"\r\n              class=\"form-control\"\r\n              required\r\n              #username1 = \"ngModel\"/>\r\n\r\n\r\n\r\n    <input   [(ngModel)] = \"password\"\r\n             placeholder=\"password\"\r\n             name = \"password\"\r\n             type=\"password\"\r\n             class=\"form-control\"\r\n             required\r\n             #password1 = \"ngModel\"/>\r\n\r\n\r\n    <button class=\"btn btn-primary btn-block\"\r\n            type=\"submit\"\r\n            (click) = \"login(username,password)\">Login</button>\r\n      <br/>\r\n\r\n\r\n    <button class=\"btn btn-success btn-block\"\r\n           [routerLink] = \"['/register']\">Register</button>\r\n\r\n  <a href=\"localhost:3100/facebook/login\" class=\"btn btn-primary btn-block\"\r\n          type=\"button\">\r\n    <span class=\"fa fa-facebook\"></span>\r\n    Facebook\r\n  </a>\r\n\r\n\r\n\r\n\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n\r\n\r\n  <div *ngIf=\"errorFlag\"\r\n       class=\"alert alert-danger\">\r\n    {{errorMsg}}\r\n  </div>\r\n  <h1>Login</h1>\r\n\r\n\r\n\r\n    <input    [(ngModel)] = \"username\"\r\n              placeholder=\"username\"\r\n              name = \"username\"\r\n              type=\"text\"\r\n              class=\"form-control\"\r\n              required\r\n              #username1 = \"ngModel\"/>\r\n\r\n\r\n\r\n    <input   [(ngModel)] = \"password\"\r\n             placeholder=\"password\"\r\n             name = \"password\"\r\n             type=\"password\"\r\n             class=\"form-control\"\r\n             required\r\n             #password1 = \"ngModel\"/>\r\n\r\n\r\n    <button class=\"btn btn-primary btn-block\"\r\n            type=\"submit\"\r\n            (click) = \"login(username,password)\">Login</button>\r\n      <br/>\r\n\r\n\r\n    <button class=\"btn btn-success btn-block\"\r\n           [routerLink] = \"['/register']\">Register</button>\r\n\r\n  <a href=\"localhost:3100/facebook/login\" class=\"btn btn-primary btn-block\"\r\n          type=\"button\">\r\n    <span class=\"fa fa-facebook\"></span>\r\n    Facebook\r\n  </a>\r\n\r\n\r\n\r\n\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -775,6 +773,7 @@ var LoginComponent = (function () {
             .login(this.username, this.password)
             .subscribe(function (user) {
             _this.sharedService.user = user;
+            _this.errorFlag = false;
             _this.router.navigate(['/profile']);
         });
         // this.userservice.findUserByCredentials(username, password)

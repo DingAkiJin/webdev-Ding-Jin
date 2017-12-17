@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
   login(username: String, password: String) {
     this.userservice
       .login(this.username, this.password)
-      .subscribe((user) => {
+      .subscribe(
+        (user) => {
       this.sharedService.user = user;
+      this.errorFlag = false;
       this.router.navigate(['/profile']);
       });
     // this.userservice.findUserByCredentials(username, password)

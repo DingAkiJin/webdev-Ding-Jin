@@ -24,7 +24,7 @@ import {AuthenticationService} from './services/authentication.service.client';
 
 const APP_ROUTES: Routes = [
   {path: 'omdb', component: OmdbtestComponent},
-  {path: '', component : HomeComponent},
+  // {path: '', component : HomeComponent},
   {path: 'test', component: TestComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
