@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
+<head>
+  <meta charset="utf-8">
+  <title>A3</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  </style>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+
+
+</head>
+
 <body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content,
@@ -27,41 +45,43 @@ and is wrapped around the whole page content, except for the footer in this exam
 
     <!-- Blog entries -->
 
-      <!-- Blog entry -->
-      <div class="w3-card-4 w3-margin w3-white">
-        <img src="http://all4desktop.com/data_images/wallpapers/nature-and-landscape/055005.jpg" alt="Nature" style="width:20%">
-        <div class="w3-container">
-          <h3><b>A Little About Myself</b></h3>
+    <!-- Blog entry -->
+    <div class="w3-card-4 w3-margin w3-white">
+      <img src="http://all4desktop.com/data_images/wallpapers/nature-and-landscape/055005.jpg" alt="Nature" style="width:20%">
+      <div class="w3-container">
+        <h3><b>A Little About Myself</b></h3>
 
-        </div>
-
-        <div class="w3-container">
-          <p>I'm a student majoring in Computer Science at Northeastern University.
-            I have a heart of love of Web Development. Hope to be better at it in the future. </p>
-
-        </div>
       </div>
 
+
+      <div class="w3-container">
+        <p>I'm a student majoring in Computer Science at Northeastern University.
+          I have a heart of love of Web Development. Hope to be better at it in the future. </p>
+
+      </div>
+    </div>
+
   </div>
 
 
 
 
-      <!-- END BLOG ENTRIES -->
+  <!-- END BLOG ENTRIES -->
 
 
 
 
-<!-- Footer -->
-<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <a href="https://webdev-ding-jin.herokuapp.com/login">
-  <button class="w3-button w3-black  w3-padding-large w3-margin-bottom">Assignment</button>
-  </a>
-  <a href="https://webdev-news-app.herokuapp.com">
-  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Project</button>
-  </a>
-</footer>
-  </div>
+  <!-- Footer -->
+  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+
+      <button class="w3-button w3-black  w3-padding-large w3-margin-bottom"
+              [routerLink] = "['/login']">Assignment</button>
+
+    <a href="https://webdev-news-app.herokuapp.com">
+      <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Project</button>
+    </a>
+  </footer>
+</div>
 
 
 </body>

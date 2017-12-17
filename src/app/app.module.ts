@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { QuillEditorModule } from 'ngx-quill-editor';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -83,7 +84,7 @@ import {WebdevSortableDirective} from './components/widget/widget-list/webdev-so
   ],
   // Client Side services here
   providers: [
-     UserService,
+    UserService,
      WebsiteService,
     PageService,
     WidgetService,
